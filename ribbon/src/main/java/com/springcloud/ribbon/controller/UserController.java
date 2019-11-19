@@ -1,4 +1,4 @@
-package com.springcloud.user.controller;
+package com.springcloud.ribbon.controller;
 
 import com.springcloud.configuration.result.Response;
 import com.springcloud.configuration.result.Result;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
     @Value("${server.port}")
-    String port;
+    private Integer port;
 
     @ApiOperation(value = "测试")
     @GetMapping("/list")

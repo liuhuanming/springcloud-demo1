@@ -8,11 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="user" />
         <module name="zuul" />
+        <module name="eurkeka-client" />
         <module name="common" />
         <module name="security" />
         <module name="springcloud-demo" />
         <module name="eurkeka" />
-        <module name="eurkeka-client" />
+        <module name="ribbon" />
+        <module name="elasticsearch" />
         <module name="blog" />
       </profile>
     </annotationProcessing>
@@ -24,8 +26,10 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="blog" options="-parameters" />
       <module name="common" options="-parameters" />
+      <module name="elasticsearch" options="-parameters" />
       <module name="eurkeka" options="-parameters" />
       <module name="eurkeka-client" options="-parameters" />
+      <module name="ribbon" options="-parameters" />
       <module name="springcloud-demo" options="-parameters" />
       <module name="user" options="-parameters" />
       <module name="zuul" options="-parameters" />
