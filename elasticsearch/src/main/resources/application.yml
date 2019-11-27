@@ -8,7 +8,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
     username: root
     password: root
     initialSize: 5
@@ -55,7 +55,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 3000 #hystrix超时时间
+            timeoutInMilliseconds: 3000 #hystrix锟斤拷时时锟斤拷
 mybatis:
   type-aliases-package: com.springcloud.elasticsearch.entity
   mapper-locations: classpath*:mapper/*.xml
@@ -64,4 +64,10 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
 elasticsearch:
-  ip: 192.168.10.101:9200,192.168.10.101:9201
+  nodes: 192.168.10.101:9200,192.168.10.101:9201
+  schema: http
+  max-connect-total: 50
+  max-connect-per-route: 10
+  connection-request-timeout-millis: 500
+  socket-timeout-millis: 30000
+  connect-timeout-millis: 1000

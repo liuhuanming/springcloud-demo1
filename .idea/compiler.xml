@@ -8,14 +8,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="user" />
         <module name="zuul" />
-        <module name="eurkeka-client" />
+        <module name="blog" />
         <module name="common" />
         <module name="security" />
         <module name="springcloud-demo" />
-        <module name="eurkeka" />
         <module name="ribbon" />
+        <module name="eurkeka" />
+        <module name="eurkeka-client" />
         <module name="elasticsearch" />
-        <module name="blog" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
