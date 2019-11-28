@@ -10,6 +10,8 @@ import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.elasticsearch.action.admin.indices.get.GetIndexRequest;
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.bulk.BulkResponse;
+import org.elasticsearch.action.delete.DeleteRequest;
+import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetRequest;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexRequest;
@@ -21,12 +23,14 @@ import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.action.update.UpdateResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.common.unit.TimeValue;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.rest.RestStatus;
 import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightField;
@@ -37,8 +41,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Service
@@ -61,8 +67,8 @@ public class EsServiceImpl implements EsService {
         boolBuilder.must(matchQueryBuilder);
         searchSourceBuilder.query(boolBuilder);
         // 分页
-        searchSourceBuilder.from(0);
-        searchSourceBuilder.size(10);
+//        searchSourceBuilder.from(0);
+//        searchSourceBuilder.size(10);
 
         // 降序
         FieldSortBuilder fieldSortBuilder = SortBuilders.fieldSort("id");
@@ -169,6 +175,18 @@ public class EsServiceImpl implements EsService {
         return updateResponse;
     }
 
+    @Override
+    public DeleteResponse deleteDocumentById(String index, String type, String id) {
+        DeleteRequest deleteRequest = new DeleteRequest(index, type, id);
+        DeleteResponse response = null;
+        try {
+            response = restHighLevelClient.delete(deleteRequest, RequestOptions.DEFAULT);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return response;
+    }
+
     /**
      * 创建索引
      * @param indexName
@@ -224,6 +242,64 @@ public class EsServiceImpl implements EsService {
             bulkRequest.add(indexRequest); // 加入到批量请求bulk
         }
 
+        BulkResponse bulkResponse = null;
+        try {
+            bulkResponse = restHighLevelClient.bulk(bulkRequest, RequestOptions.DEFAULT);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bulkResponse;
+    }
+
+    /**
+     * 批量删除
+     * @param index
+     * @param type
+     * @param deleteText
+     * @param maxSize
+     * @return
+     */
+    @Override
+    public BulkResponse bulkDelete(String index, String type, String deleteText, Integer maxSize){
+        int num = 0;
+
+        // 搜索构造器
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        searchSourceBuilder.timeout(new TimeValue(2, TimeUnit.SECONDS));
+        // 不好使，弃用。。
+//        TermQueryBuilder termQueryBuilder = QueryBuilders.termQuery("username.keyword", deleteText);
+        // 创建匹配查询构造器
+        MatchQueryBuilder matchQueryBuilder = QueryBuilders.matchQuery("username", deleteText);
+        BoolQueryBuilder boolBuilder = QueryBuilders.boolQuery();
+        searchSourceBuilder.query(boolBuilder);
+
+        // 搜索请求
+        SearchRequest searchRequest = new SearchRequest(index, type);
+        searchRequest.source(searchSourceBuilder);
+        SearchResponse response = null;
+        try {
+            response = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // 搜索命中
+        SearchHits hits = response.getHits();
+        // 存放ids
+        ArrayList<String> ids = new ArrayList<>(hits.getHits().length);
+        for (SearchHit hit : hits) {
+            ids.add(hit.getId());
+        }
+        BulkRequest bulkRequest = new BulkRequest();
+
+        for (String id : ids) {
+            // 大于maxSize就退出
+            num++;
+            if (num > maxSize) {
+                break;
+            }
+            DeleteRequest deleteRequest = new DeleteRequest(index, type, id);
+            bulkRequest.add(deleteRequest);
+        }
         BulkResponse bulkResponse = null;
         try {
             bulkResponse = restHighLevelClient.bulk(bulkRequest, RequestOptions.DEFAULT);

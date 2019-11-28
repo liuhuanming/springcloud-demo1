@@ -2,6 +2,7 @@ package com.springcloud.elasticsearch.service;
 
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
 import org.elasticsearch.action.bulk.BulkResponse;
+import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.update.UpdateResponse;
@@ -21,9 +22,13 @@ public interface EsService {
 
     UpdateResponse updateDocument(String index, String type, String text, String id);
 
+    DeleteResponse deleteDocumentById(String index, String type, String id);
+
     CreateIndexResponse createIndex(String indexName);
 
     boolean deleteIndex(String indexName) throws Exception;
 
     BulkResponse bulkInsert(List<String> jsonStrList, String index, String type);
+
+    BulkResponse bulkDelete(String index, String type, String deleteText, Integer maxSize);
 }

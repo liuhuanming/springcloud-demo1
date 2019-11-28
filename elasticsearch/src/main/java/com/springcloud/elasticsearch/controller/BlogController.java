@@ -11,9 +11,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
 import org.elasticsearch.action.bulk.BulkResponse;
+import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.update.UpdateResponse;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -81,15 +83,15 @@ public class BlogController {
 
     @ApiOperation(value = "修改数据")
     @PostMapping("/blog")
-    public Result<String> update(User user, String _id){
-        if (StringUtils.isEmpty(user.getId())) {
-            return Response.error(ResultEnum.ERROR,"Id不能为空！");
+    public Result<UpdateResponse> update(User user, String _id){
+        if (StringUtils.isEmpty(_id)) {
+            return Response.error(ResultEnum.ERROR,"_id不能为空！");
         }
         user.setBirthday(new Date());
         String json = JSON.toJSONString(user);
         UpdateResponse response = null;
         response = esService.updateDocument("blog", "blog", json, _id);
-        return Response.ok(response.toString());
+        return Response.ok(response);
     }
 
     @ApiOperation(value = "批量添加数据")
@@ -108,6 +110,44 @@ public class BlogController {
         }
         BulkResponse bulkResponse = esService.bulkInsert(userJsonList, "blog", "blog");
         return Response.ok(bulkResponse.toString());
+    }
+
+    @ApiOperation(value = "删除数据根据ID")
+    @DeleteMapping("/blog/{id}")
+    public Result<DeleteResponse> deleteById(@PathVariable("id") String id){
+        DeleteResponse response = null;
+        response = esService.deleteDocumentById("blog", "blog", id);
+        return Response.ok(response);
+    }
+
+    @ApiOperation(value = "根据条件批量删除数据")
+    @DeleteMapping("/bulk")
+    public Result<String> bulkDelete(@RequestParam("deleteText") String text){
+        int maxSize = 1000;
+        BulkResponse bulkResponse = null;
+        bulkResponse = esService.bulkDelete("blog", "blog", text, maxSize);
+        return Response.ok(bulkResponse.toString());
+    }
+
+    /**
+     * 分页条件查询
+     * @return
+     */
+    @ApiOperation(value = "分页条件查询")
+    @PutMapping("/page")
+    public Result<List<Map<String, Object>>> page(@RequestParam(value = "text") String text, Integer pageNum,
+                              Integer pageSize){
+        List<Map<String, Object>> result = new ArrayList<>();
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        if (StringUtils.isEmpty(pageNum)) {
+            searchSourceBuilder.from(0);
+            searchSourceBuilder.size(10);
+        } else {
+            searchSourceBuilder.from(pageNum);
+            searchSourceBuilder.size(pageSize);
+        }
+        result = esService.searchBySearchSourceBuilde("blog", "blog", text, searchSourceBuilder);
+        return Response.ok(result);
     }
 }
 
