@@ -26,6 +26,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="blog" options="-parameters" />
       <module name="common" options="-parameters" />
+      <module name="demo" options="-parameters" />
       <module name="elasticsearch" options="-parameters" />
       <module name="eurkeka" options="-parameters" />
       <module name="eurkeka-client" options="-parameters" />

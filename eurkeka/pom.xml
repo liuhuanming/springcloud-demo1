@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.springcloud</groupId>
-	<artifactId>eurkeka</artifactId>
+	<artifactId>eureka</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>eurkeka</name>
+	<name>eureka</name>
 	<description>Demo project for Spring Boot</description>
 
     <parent>
@@ -27,4 +27,26 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<!-- 打包本地lib的jar包到项目中 -->
+					<includeSystemScope>true</includeSystemScope>
+					<mainClass>com.springcloud.EurkekaApplication</mainClass>
+					<fork>true</fork>
+					<layout>ZIP</layout>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
