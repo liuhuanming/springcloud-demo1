@@ -8,14 +8,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="user" />
         <module name="zuul" />
-        <module name="blog" />
+        <module name="eurkeka-client" />
         <module name="common" />
         <module name="security" />
         <module name="springcloud-demo" />
-        <module name="ribbon" />
         <module name="eurkeka" />
-        <module name="eurkeka-client" />
+        <module name="ribbon" />
+        <module name="quartz" />
         <module name="elasticsearch" />
+        <module name="blog" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -30,6 +31,7 @@
       <module name="elasticsearch" options="-parameters" />
       <module name="eurkeka" options="-parameters" />
       <module name="eurkeka-client" options="-parameters" />
+      <module name="quartz" options="-parameters" />
       <module name="ribbon" options="-parameters" />
       <module name="springcloud-demo" options="-parameters" />
       <module name="user" options="-parameters" />

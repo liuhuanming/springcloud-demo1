@@ -1,0 +1,27 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: eureka-client
+  profiles:
+    active: prod
+eureka:
+  instance:
+    hostname: 101.200.228.9
+    instance:
+    ##客户端自己告诉服务端多少秒发送一个心跳包
+    lease-renewal-interval-in-seconds: 1
+    ##客户端告诉服务端等待多少秒之后如果还是没有收到心跳包，那就把我剔除吧
+    lease-expiration-duration-in-seconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}/eureka/
+    ###是否需要注册到eureka上
+    register-with-eureka: true
+    ###需要检索服务
+    fetch-registry: true
+  server:
+    ##是否开启自我保护机制
+    enable-self-preservation: false
+    ##超过20之后才剔除
+    eviction-interval-timer-in-ms: 20000
