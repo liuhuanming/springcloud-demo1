@@ -8,10 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.QuartzJobBean;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +34,7 @@ public class TestController {
     }
 
     @ApiOperation(value ="添加测试执行定时任务")
-    @PostMapping("")
+    @PutMapping("")
     public Result add(String jobClassName, String jobName, String jobGroupName, String jobTime) {
         Map map = new HashMap(2);
         map.put("id",1L);
