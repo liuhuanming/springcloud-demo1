@@ -36,12 +36,28 @@ public class TestController {
         return Response.ok(testService.findAll());
     }
 
-    @ApiOperation(value ="测试执行定时任务")
+    @ApiOperation(value ="添加测试执行定时任务")
     @PostMapping("")
-    public Result add(Class<? extends QuartzJobBean> job, String jobName, String jobGroupName, String jobTime) {
+    public Result add(String jobClassName, String jobName, String jobGroupName, String jobTime) {
         Map map = new HashMap(2);
         map.put("id",1L);
-        quartzService.addJob(job, jobName, jobGroupName, jobTime, map);
+        Class<? extends QuartzJobBean> jobClass = null;
+        try {
+            jobClass = (Class<? extends QuartzJobBean>) Class.forName(jobClassName);
+            quartzService.addJob(jobClass, jobName, jobGroupName, jobTime, map);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return Response.ok();
+    }
+
+    @ApiOperation(value ="修改测试执行定时任务")
+    @PostMapping("")
+    public Result updateJob(String jobClassName, String jobName, String jobGroupName, String jobTime) {
+        Map map = new HashMap(2);
+        map.put("id",1L);
+        Class<? extends QuartzJobBean> jobClass = null;
+        quartzService.updateJob(jobName, jobGroupName, jobTime);
         return Response.ok();
     }
 

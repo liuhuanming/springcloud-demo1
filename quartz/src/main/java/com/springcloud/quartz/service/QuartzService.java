@@ -22,7 +22,7 @@ public interface QuartzService {
     void deleteJob(String jobName, String jobGroupName);
     // 暂停
     void pauseJob(String jobName, String jobGroupName);
-
+    //恢复job
     void resumeJob(String jobName, String jobGroupName);
 
     List<Map<String, Object>> queryAllJob();
