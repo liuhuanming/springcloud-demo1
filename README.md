@@ -9,5 +9,7 @@ zuul: http://localhost:8083/
 user-service : http://localhost:8001/
 blog-service: http://localhost:8002/
 quartz: http://localhost:8003/
-reds: http://localhost:8004/
+redis: http://localhost:8004/
+netty: http://localhost:8005
+
 
