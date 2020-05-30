@@ -26,13 +26,20 @@
 
     <modules>
         <module>common</module>
-        <module>eurkeka</module>
-        <module>eurkeka-client</module>
+        <module>eureka</module>
+        <module>eureka-client</module>
         <module>zuul</module>
 
         <module>user</module>
         <module>blog</module>
         <module>ribbon</module>
+
+        <module>redis</module>
+        <module>netty</module>
+
+        <module>elasticsearch</module>
+        <module>quartz</module>
+
     </modules>
 
 	<dependencies>
