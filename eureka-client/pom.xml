@@ -25,6 +25,11 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+			<version>2.1.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -35,7 +40,7 @@
 				<configuration>
 					<!-- 打包本地lib的jar包到项目中 -->
 					<includeSystemScope>true</includeSystemScope>
-					<mainClass>com.springcloud.erukekaClient.EurkekaClientApplication</mainClass>
+					<mainClass>com.springcloud.erukekaClient.EurekaClientApplication</mainClass>
 					<fork>true</fork>
 					<layout>ZIP</layout>
 				</configuration>

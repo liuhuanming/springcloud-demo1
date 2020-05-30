@@ -13,3 +13,13 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
     register-with-eureka: false
     fetch-registry: false
+management:
+  endpoints:
+    web:
+      exposure:
+        #开放所有页面节点  默认只开启了health、info两个节点
+        include: '*'
+  endpoint:
+    health:
+      #显示健康具体信息  默认不会显示详细信息
+      show-details: always

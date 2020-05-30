@@ -7,10 +7,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @EnableDiscoveryClient
-public class EurkekaClientApplication {
+public class EurekaClientApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EurkekaClientApplication.class, args);
+		SpringApplication.run(EurekaClientApplication.class, args);
 	}
 
 }

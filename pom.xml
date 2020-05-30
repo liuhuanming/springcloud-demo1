@@ -39,7 +39,7 @@
 
         <module>elasticsearch</module>
         <module>quartz</module>
-
+        <module>admin</module>
     </modules>
 
 	<dependencies>
