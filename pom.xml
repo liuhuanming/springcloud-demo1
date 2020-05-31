@@ -29,17 +29,18 @@
         <module>eureka</module>
         <module>eureka-client</module>
         <module>zuul</module>
+        <module>admin</module>
+        <module>ribbon</module>
 
         <module>user</module>
         <module>blog</module>
-        <module>ribbon</module>
 
         <module>redis</module>
         <module>netty</module>
-
         <module>elasticsearch</module>
         <module>quartz</module>
-        <module>admin</module>
+        <module>jpa</module>
+
     </modules>
 
 	<dependencies>
