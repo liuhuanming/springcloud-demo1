@@ -1,4 +1,4 @@
-package com.eccl.cloud.common.util;
+package com.springcloud.configuration.util;
 
 import javax.servlet.http.HttpServletRequest;
 

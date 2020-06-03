@@ -21,16 +21,17 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
-
 	</properties>
 
     <modules>
-        <!--<module>common</module>-->
+        <module>common</module>
         <module>eureka</module>
         <module>eureka-client</module>
         <module>zuul</module>
         <module>admin</module>
         <module>ribbon</module>
+        <module>monitor</module>
+        <module>osgi</module>
 
         <module>user</module>
         <module>blog</module>
@@ -40,7 +41,7 @@
         <module>elasticsearch</module>
         <module>quartz</module>
         <module>jpa</module>
-
+        <module>monitor</module>
     </modules>
 
 	<dependencies>
@@ -74,12 +75,12 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-        <!--公共组件
+        <!--公共组件-->
         <dependency>
-            <groupId>com.springcloud</groupId>
+            <groupId>com.springcloud.configuration</groupId>
             <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-        </dependency>-->
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

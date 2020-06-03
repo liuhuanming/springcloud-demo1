@@ -1,4 +1,4 @@
-package com.eccl.cloud.common.util;
+package com.springcloud.configuration.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
