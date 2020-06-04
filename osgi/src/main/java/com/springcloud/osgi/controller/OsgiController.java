@@ -32,7 +32,7 @@ public class OsgiController {
         OsgiService server = new OsgiService();
         server.copyTo();
 
-        return Response.ok();
+        return Response.ok(server);
     }
 
 }

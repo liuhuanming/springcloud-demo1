@@ -8,7 +8,7 @@ eureka-client: http://localhost:8082/
 zuul: http://localhost:8083/
 admin:http://localhost:8088
 monitor:http://localhost:8089
-monitor:http://localhost:8090
+osgi:http://localhost:8090
 
 
 user-service : http://localhost:8001/

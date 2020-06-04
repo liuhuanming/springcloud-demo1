@@ -9,19 +9,19 @@ eureka:
   instance:
     hostname: 127.0.0.1
     instance:
-    ##¿Í»§¶Ë×Ô¼º¸æËß·şÎñ¶Ë¶àÉÙÃë·¢ËÍÒ»¸öĞÄÌø°ü
+    ##å®¢æˆ·ç«¯è‡ªå·±å‘Šè¯‰æœåŠ¡ç«¯å¤šå°‘ç§’å‘é€ä¸€ä¸ªå¿ƒè·³åŒ…
     lease-renewal-interval-in-seconds: 1
-    ##¿Í»§¶Ë¸æËß·şÎñ¶ËµÈ´ı¶àÉÙÃëÖ®ºóÈç¹û»¹ÊÇÃ»ÓĞÊÕµ½ĞÄÌø°ü£¬ÄÇ¾Í°ÑÎÒÌŞ³ı°É
+    ##å®¢æˆ·ç«¯å‘Šè¯‰æœåŠ¡ç«¯ç­‰å¾…å¤šå°‘ç§’ä¹‹åå¦‚æœè¿˜æ˜¯æ²¡æœ‰æ”¶åˆ°å¿ƒè·³åŒ…ï¼Œé‚£å°±æŠŠæˆ‘å‰”é™¤å§
     lease-expiration-duration-in-seconds: 2
   client:
     serviceUrl:
       defaultZone: http://127.0.0.1:8081/eureka/
-    ###ÊÇ·ñĞèÒª×¢²áµ½eurekaÉÏ
+    ###æ˜¯å¦éœ€è¦æ³¨å†Œåˆ°eurekaä¸Š
     register-with-eureka: true
-    ###ĞèÒª¼ìË÷·şÎñ
+    ###éœ€è¦æ£€ç´¢æœåŠ¡
     fetch-registry: true
   server:
-    ##ÊÇ·ñ¿ªÆô×ÔÎÒ±£»¤»úÖÆ
+    ##æ˜¯å¦å¼€å¯è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶
     enable-self-preservation: false
-    ##³¬¹ı20Ö®ºó²ÅÌŞ³ı
+    ##è¶…è¿‡20ä¹‹åæ‰å‰”é™¤
     eviction-interval-timer-in-ms: 20000
