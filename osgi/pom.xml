@@ -20,8 +20,9 @@
     </properties>
 
     <dependencies>
+        <!--公共组件-->
         <dependency>
-            <groupId>com.springcloud.configuration</groupId>
+            <groupId>com.springcloud</groupId>
             <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

@@ -1,7 +1,7 @@
 package com.springcloud.quartz.controller;
 
-import com.springcloud.configuration.result.Response;
-import com.springcloud.configuration.result.Result;
+import com.springcloud.common.result.Response;
+import com.springcloud.common.result.Result;
 import com.springcloud.quartz.service.QuartzService;
 import com.springcloud.quartz.service.TestService;
 import io.swagger.annotations.Api;

@@ -1,6 +1,6 @@
 package com.springcloud.osgi.entity;
 
-import com.springcloud.configuration.util.CalcUtil;
+import com.springcloud.common.util.CalcUtil;
 import lombok.Setter;
 
 /**

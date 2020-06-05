@@ -1,9 +1,8 @@
 package com.springcloud.blog.controller;
 
-import com.springcloud.blog.entity.Blog;
 import com.springcloud.blog.feign.BlogService;
-import com.springcloud.configuration.result.Response;
-import com.springcloud.configuration.result.Result;
+import com.springcloud.common.result.Response;
+import com.springcloud.common.result.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * @description:

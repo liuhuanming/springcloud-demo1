@@ -1,4 +1,4 @@
-package com.springcloud.configuration.util;
+package com.springcloud.common.util;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;

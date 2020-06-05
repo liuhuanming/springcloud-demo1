@@ -1,4 +1,4 @@
-package com.springcloud.configuration.result;
+package com.springcloud.common.result;
  
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;

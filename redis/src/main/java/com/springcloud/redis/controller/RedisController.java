@@ -1,7 +1,7 @@
 package com.springcloud.redis.controller;
 
-import com.springcloud.configuration.result.Response;
-import com.springcloud.configuration.result.Result;
+import com.springcloud.common.result.Response;
+import com.springcloud.common.result.Result;
 import com.springcloud.redis.config.RedisUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

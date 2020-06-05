@@ -1,7 +1,4 @@
-package com.springcloud.configuration.result;
-
-import com.springcloud.configuration.result.Result;
-import com.springcloud.configuration.result.ResultEnum;
+package com.springcloud.common.result;
 
 public class Response {
 	private final static Boolean SUCCESS = true;

@@ -1,7 +1,7 @@
 package com.springcloud.user.controller;
 
-import com.springcloud.configuration.result.Response;
-import com.springcloud.configuration.result.Result;
+import com.springcloud.common.result.Response;
+import com.springcloud.common.result.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Value;

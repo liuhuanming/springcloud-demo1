@@ -1,4 +1,4 @@
-package com.springcloud.configuration.config;
+package com.springcloud.common.config;
 
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;

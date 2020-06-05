@@ -1,4 +1,4 @@
-package com.springcloud.configuration.util;
+package com.springcloud.common.util;
 /**
  * @Description: 随机数生成工具类
  * @author: lmn

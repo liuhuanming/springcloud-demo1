@@ -1,4 +1,4 @@
-package com.springcloud.configuration.config;
+package com.springcloud.common.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

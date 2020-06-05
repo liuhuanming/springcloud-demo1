@@ -1,7 +1,7 @@
 package com.springcloud.osgi.entity;
 
-import com.springcloud.configuration.util.CalcUtil;
-import com.springcloud.configuration.util.CalendarUtils;
+import com.springcloud.common.util.CalcUtil;
+import com.springcloud.common.util.CalendarUtils;
 import lombok.Getter;
 import lombok.Setter;
 

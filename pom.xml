@@ -75,12 +75,12 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-        <!--公共组件-->
+        <!--公共组件
         <dependency>
-            <groupId>com.springcloud.configuration</groupId>
+            <groupId>com.springcloud</groupId>
             <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+        </dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

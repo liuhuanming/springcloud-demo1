@@ -2,9 +2,9 @@ package com.springcloud.elasticsearch.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.springcloud.configuration.result.Response;
-import com.springcloud.configuration.result.Result;
-import com.springcloud.configuration.result.ResultEnum;
+import com.springcloud.common.result.Response;
+import com.springcloud.common.result.Result;
+import com.springcloud.common.result.ResultEnum;
 import com.springcloud.elasticsearch.entity.User;
 import com.springcloud.elasticsearch.service.UserService;
 import io.swagger.annotations.Api;

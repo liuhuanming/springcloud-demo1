@@ -1,6 +1,6 @@
 package com.springcloud.osgi.service;
 
-import com.springcloud.configuration.util.CalcUtil;
+import com.springcloud.common.util.CalcUtil;
 import com.springcloud.osgi.entity.*;
 import lombok.Getter;
 import lombok.Setter;

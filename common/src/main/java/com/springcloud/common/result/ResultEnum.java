@@ -1,4 +1,4 @@
-package com.springcloud.configuration.result;
+package com.springcloud.common.result;
 
 
 public enum ResultEnum {

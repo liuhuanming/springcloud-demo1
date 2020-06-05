@@ -1,4 +1,4 @@
-package com.springcloud.configuration.config;
+package com.springcloud.common.config;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
