@@ -21,7 +21,7 @@ public class SSHUtil {
         String host = "101.200.228.9";
         int port = 30022;
         String user = "root";
-        String password = "Lmn41955989";
+        String password = "";
         String command = "top";
         List<String> res = exeCommand(host, port, user, password, command);
         res.forEach(it -> {

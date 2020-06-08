@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.springcloud</groupId>
-		<artifactId>demo</artifactId>
+		<artifactId>springcloud-demo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.springcloud</groupId>
@@ -33,7 +33,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.springcloud</groupId>
-			<artifactId>common</artifactId>
+			<artifactId>lmn-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>

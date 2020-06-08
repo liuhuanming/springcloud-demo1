@@ -1,5 +1,6 @@
 package com.springcloud.jpa.service.impl;
 
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.springcloud.jpa.dao.UserDao;
 import com.springcloud.jpa.entity.UserEntity;
 import com.springcloud.jpa.service.UserService;
@@ -19,10 +20,12 @@ public class UserServiceImpl implements UserService  {
 
     @Autowired
     private UserDao userDao;
+    
+    @Autowired
+    private JPAQueryFactory jpaQueryFactory;
 
     @Override
     public List<User> findAll(UserEntity userEntity) {
-//        QUserEntity.userEntity
         return null;
     }
 }
