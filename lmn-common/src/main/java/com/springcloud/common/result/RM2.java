@@ -1,4 +1,4 @@
-package com.eccl.cloud.common.result;
+package com.springcloud.common.result;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -6,7 +6,7 @@ import java.util.List;
 
 /***
  * 返回json对象封装类（属性为null，不返回）
- * @author zhangda
+ * @author lmn
  * version：2.0
  * 更新内容：加入泛型
  */

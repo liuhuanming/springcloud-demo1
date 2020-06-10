@@ -24,7 +24,7 @@
     </properties>
 
     <modules>
-        <!--<module>lmn-common</module>-->
+        <module>lmn-common</module>
         <module>eureka</module>
         <module>eureka-client</module>
         <module>zuul</module>
@@ -41,7 +41,6 @@
         <module>elasticsearch</module>
         <module>quartz</module>
         <module>jpa</module>
-        <!--<module>monitor</module>-->
     </modules>
 
     <dependencies>
