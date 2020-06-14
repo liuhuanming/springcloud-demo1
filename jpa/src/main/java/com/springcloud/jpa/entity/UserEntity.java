@@ -156,4 +156,21 @@ public class UserEntity {
     public int hashCode() {
         return Objects.hash(id, account, username, password, age, address, lastLoginTime, enabled, accountNotExpired, accountNotLocked, credentialsNotExpired);
     }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", account='" + account + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", age=" + age +
+                ", address='" + address + '\'' +
+                ", lastLoginTime=" + lastLoginTime +
+                ", enabled=" + enabled +
+                ", accountNotExpired=" + accountNotExpired +
+                ", accountNotLocked=" + accountNotLocked +
+                ", credentialsNotExpired=" + credentialsNotExpired +
+                '}';
+    }
 }

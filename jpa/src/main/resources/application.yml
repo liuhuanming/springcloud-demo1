@@ -36,6 +36,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+      show-sql: true
+      format_sql: true
     show-sql: true
 eureka:
   instance:

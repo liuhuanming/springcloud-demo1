@@ -1,6 +1,6 @@
 package com.springcloud.jpa.service;
 
-import com.springcloud.jpa.dto.UserInfoDto;
+import com.querydsl.core.Tuple;
 import com.springcloud.jpa.entity.UserEntity;
 
 import java.util.List;
@@ -13,5 +13,5 @@ import java.util.List;
 public interface UserService {
     List<UserEntity> findAll(UserEntity userEntity);
     UserEntity findOne(UserEntity userEntity);
-    List<UserInfoDto> findUserInfo(UserEntity userEntity);
+    List<Tuple> findUserInfo(UserEntity userEntity);
 }

@@ -22,11 +22,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.springcloud</groupId>
-            <artifactId>lmn-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-server</artifactId>
             <version>2.1.2</version>

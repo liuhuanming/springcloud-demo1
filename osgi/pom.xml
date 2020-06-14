@@ -20,13 +20,6 @@
     </properties>
 
     <dependencies>
-        <!--公共组件-->
-        <dependency>
-            <groupId>com.springcloud</groupId>
-            <artifactId>lmn-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-io</artifactId>

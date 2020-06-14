@@ -24,7 +24,7 @@
     </properties>
 
     <modules>
-        <module>lmn-common</module>
+        <module>common</module>
         <module>eureka</module>
         <module>eureka-client</module>
         <module>zuul</module>
@@ -47,6 +47,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.springcloud.common</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <!--yml文件中提示属性-->
         <dependency>

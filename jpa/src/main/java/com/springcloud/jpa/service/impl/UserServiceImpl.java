@@ -1,10 +1,11 @@
 package com.springcloud.jpa.service.impl;
 
+import com.querydsl.core.Tuple;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.springcloud.jpa.dao.UserDao;
-import com.springcloud.jpa.dto.UserInfoDto;
 import com.springcloud.jpa.entity.QRoleEntity;
 import com.springcloud.jpa.entity.QUserEntity;
+import com.springcloud.jpa.entity.QUserRoleEntity;
 import com.springcloud.jpa.entity.UserEntity;
 import com.springcloud.jpa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +30,10 @@ public class UserServiceImpl implements UserService  {
     @Override
     public List<UserEntity> findAll(UserEntity userEntity) {
         QUserEntity qUserEntity = QUserEntity.userEntity;
-        List<UserEntity> list = jpaQueryFactory.
-                select(qUserEntity).from(qUserEntity).
-                where(qUserEntity.account.like(userEntity.getAccount())).fetch();
+      List<UserEntity> list = jpaQueryFactory
+                .selectFrom(qUserEntity)
+                .where(qUserEntity.account.like("%"+userEntity.getAccount()+"%"))
+                .fetch();
         return list;
     }
 
@@ -45,11 +47,16 @@ public class UserServiceImpl implements UserService  {
     }
 
     @Override
-    public List<UserInfoDto> findUserInfo(UserEntity userEntity) {
+    public List<Tuple> findUserInfo(UserEntity userEntity) {
         QUserEntity qUserEntity = QUserEntity.userEntity;
         QRoleEntity qRoleEntity = QRoleEntity.roleEntity;
-//        jpaQueryFactory.select()
-
-        return null;
+        QUserRoleEntity qUserRoleEntity = QUserRoleEntity.userRoleEntity;
+        List<Tuple> userInfoList = jpaQueryFactory.select(qUserEntity,qRoleEntity)
+                .from(qUserEntity)
+                .leftJoin(qUserRoleEntity).on(qUserEntity.id.eq(qUserRoleEntity.userId))
+                .leftJoin(qRoleEntity).on(qRoleEntity.id.eq((qUserRoleEntity.roleId)))
+                .where(qUserEntity.account.like("%" + userEntity.getAccount() + "%"))
+                .fetch();
+        return userInfoList;
     }
 }

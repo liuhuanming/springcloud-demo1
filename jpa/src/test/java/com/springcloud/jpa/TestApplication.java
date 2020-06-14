@@ -1,5 +1,6 @@
 package com.springcloud.jpa;
 
+import com.querydsl.core.Tuple;
 import com.springcloud.jpa.entity.UserEntity;
 import com.springcloud.jpa.service.UserService;
 import org.junit.Test;
@@ -28,6 +29,16 @@ public class TestApplication {
         UserEntity userEntity = new UserEntity();
         userEntity.setAccount("测试");
         List<UserEntity> all = userService.findAll(userEntity);
+        all.forEach(l->{
+            System.out.println(l.toString());
+        });
+    }
+
+    @Test
+    public void testUserInfo() {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setAccount("测试");
+        List<Tuple> all = userService.findUserInfo(userEntity);
         all.forEach(l->{
             System.out.println(l.toString());
         });
