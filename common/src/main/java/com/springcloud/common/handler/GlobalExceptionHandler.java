@@ -6,6 +6,7 @@ package com.springcloud.common.handler;
  * @date: 2020-06-27 19:19
  */
 
+import com.springcloud.common.exception.MyException;
 import com.springcloud.common.result.RM2;
 import com.springcloud.common.result.Response;
 import com.springcloud.common.result.Result;
@@ -29,6 +30,20 @@ import javax.servlet.http.HttpServletResponse;
  */
 //@RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
+    /**
+     * 捕获  MyException 异常
+     * @param request  request
+     * @param e        exception
+     * @param response response
+     * @return 响应结果
+     */
+    @ExceptionHandler(MyException.class)
+    public Result<String> myExceptionHandler(HttpServletRequest request, final Exception e, HttpServletResponse response) {
+        response.setStatus(HttpStatus.BAD_REQUEST.value());
+        RuntimeException exception = (RuntimeException) e;
+        return Response.error(ResultEnum.ERROR, exception.toString());
+    }
+
     /**
      * 捕获  RuntimeException 异常
      * 如果你觉得在一个 exceptionHandler 通过  if (e instanceof xxxException) 太麻烦
