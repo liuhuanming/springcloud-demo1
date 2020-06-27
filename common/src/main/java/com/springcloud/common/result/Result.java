@@ -21,6 +21,10 @@ public class Result<T>{
     // 返回描述
     private String msg;
 
+    public Result() {
+
+    }
+
     public Result(Boolean success, String msg) {
         this.success = success;
         this.msg = msg;

@@ -28,4 +28,8 @@ public class ProductService {
     public List<ProductEntity> findAll() {
         return productDao.findAll();
     }
+
+    public ProductEntity save(ProductEntity productEntity) {
+        return productDao.save(productEntity);
+    }
 }

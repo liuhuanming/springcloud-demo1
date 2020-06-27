@@ -2,6 +2,7 @@ package com.springcloud.thread.controller;
 
 import com.springcloud.common.result.Response;
 import com.springcloud.common.result.Result;
+import com.springcloud.thread.service.AsyncService;
 import com.springcloud.thread.service.ProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -22,10 +23,18 @@ public class ThreadController {
     @Autowired
     private ProductService productService;
 
+    @Autowired
+    private AsyncService asyncService;
+
     @ApiOperation("测试")
-    @GetMapping
+    @GetMapping("/test")
     public Result test() {
         return Response.ok(productService.findAll());
     }
 
+    @ApiOperation("测试Task")
+    @GetMapping("/test1")
+    public void test1(){
+        asyncService.executeAsync();
+    }
 }

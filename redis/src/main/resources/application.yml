@@ -38,6 +38,7 @@ spring:
       ddl-auto: update
     show-sql: true
   redis:
+    database: 0
     host: 101.200.228.9
     port: 6379
     password: lmnredis
