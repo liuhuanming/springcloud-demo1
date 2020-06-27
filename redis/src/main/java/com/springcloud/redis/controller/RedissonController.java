@@ -24,6 +24,25 @@ public class RedissonController {
     @Autowired
     private RushBuyService rushBuyService;
 
+    /**
+     * 模拟这个是商品库存
+     */
+    public static volatile Integer TOTAL = 10;
+
+    @ApiOperation("测试")
+    @GetMapping("/rush1")
+    public Result lockDecreaseStock() throws InterruptedException {
+        String s = rushBuyService.rushBuy1();
+        return Response.ok(s);
+    }
+
+    @ApiOperation("测试注解")
+    @GetMapping("/rush2/{id}")
+    public Result annotationLock(@PathVariable Integer id) throws InterruptedException {
+        String s = rushBuyService.rushBuy2(id);
+        return Response.ok(s);
+    }
+
     @ApiOperation("测试")
     @GetMapping("/product/{id}")
     public Result test(@PathVariable Integer id) throws InterruptedException {

@@ -12,12 +12,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class RedisApplicationTests {
 	@Autowired
 	private RushBuyService rushBuyService;
-	// 抢购数量
-	public static volatile Integer TOTAL = 100;
 
 	@Test
 	public void contextLoads() throws InterruptedException {
-		rushBuyService.rushBuy(1);
+		rushBuyService.rushBuy1();
 	}
 
 }
