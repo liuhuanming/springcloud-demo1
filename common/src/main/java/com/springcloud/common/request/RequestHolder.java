@@ -1,0 +1,22 @@
+package com.springcloud.common.request;
+
+/**
+ * @description:
+ * @author: Think
+ * @date: 2020-06-27 13:29
+ */
+
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Objects;
+
+/**
+ * 获取 HttpServletRequest
+ */
+public class RequestHolder {
+    public static HttpServletRequest getHttpServletRequest() {
+        return ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
+    }
+}

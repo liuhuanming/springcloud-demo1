@@ -17,6 +17,8 @@ quartz: http://localhost:8003/
 redis: http://localhost:8004/
 netty: http://localhost:8005
 jpa: http://localhost:8006
+thread: http://localhost:8007/
+redission: http://localhost:8008/
 
 
 

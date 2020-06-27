@@ -11,7 +11,8 @@ public enum ResultEnum {
     SUCCESS("200","成功"),
     NOT_FOUND("404","不存在该用户"),
     
-    INTERNAL_SERVER_ERROR("500","服务器内部错误");
+    INTERNAL_SERVER_ERROR("5000","服务器内部错误"),
+    LIMIT_REQUESAT_ERROR("5001","请求次数限制");
 	
     private String code;
     private String msg;

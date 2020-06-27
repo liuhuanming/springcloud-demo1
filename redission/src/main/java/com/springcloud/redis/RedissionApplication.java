@@ -10,10 +10,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @EnableDiscoveryClient
 @EnableSwagger2
-public class RedisApplication {
+@EnableScheduling
+public class RedissionApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RedisApplication.class, args);
+		SpringApplication.run(RedissionApplication.class, args);
 	}
 
 }
