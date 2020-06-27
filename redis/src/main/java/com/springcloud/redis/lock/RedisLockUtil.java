@@ -1,8 +1,12 @@
 package com.springcloud.redis.lock;
 
+import com.springcloud.redis.redisson.DistributedLocker;
+import com.springcloud.redis.redisson.impl.RedisDistributedLocker;
 import org.redisson.api.RLock;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -10,16 +14,24 @@ import java.util.concurrent.TimeUnit;
  * @author: Think
  * @date: 2020-05-05 23:37
  */
+@Component
 public class RedisLockUtil {
     @Autowired
+    public RedisDistributedLocker locker;
+
     private static DistributedLocker distributedLocker;
+
+    @PostConstruct
+    private void init() {
+        distributedLocker = locker;
+    }
 
     /**
      * 加锁
      * @param lockKey
      * @return
      */
-    public static RLock lock(String lockKey) {
+    public RLock lock(String lockKey) {
         return distributedLocker.lock(lockKey);
     }
 
@@ -27,7 +39,7 @@ public class RedisLockUtil {
      * 释放锁
      * @param lockKey
      */
-    public static void unlock(String lockKey) {
+    public void unlock(String lockKey) {
         distributedLocker.unlock(lockKey);
     }
 
@@ -35,7 +47,7 @@ public class RedisLockUtil {
      * 释放锁
      * @param lock
      */
-    public static void unlock(RLock lock) {
+    public void unlock(RLock lock) {
         distributedLocker.unlock(lock);
     }
 
@@ -44,7 +56,7 @@ public class RedisLockUtil {
      * @param lockKey
      * @param timeout 超时时间   单位：秒
      */
-    public static RLock lock(String lockKey, int timeout) {
+    public RLock lock(String lockKey, int timeout) {
         return distributedLocker.lock(lockKey, timeout);
     }
 
@@ -54,7 +66,7 @@ public class RedisLockUtil {
      * @param unit 时间单位
      * @param timeout 超时时间
      */
-    public static RLock lock(String lockKey, int timeout, TimeUnit unit ) {
+    public RLock lock(String lockKey, int timeout, TimeUnit unit ) {
         return distributedLocker.lock(lockKey, unit, timeout);
     }
 
@@ -65,7 +77,7 @@ public class RedisLockUtil {
      * @param leaseTime 上锁后自动释放锁时间
      * @return
      */
-    public static boolean tryLock(String lockKey, int waitTime, int leaseTime) {
+    public boolean tryLock(String lockKey, int waitTime, int leaseTime) {
         return distributedLocker.tryLock(lockKey, TimeUnit.SECONDS, waitTime, leaseTime);
     }
 
@@ -77,8 +89,16 @@ public class RedisLockUtil {
      * @param leaseTime 上锁后自动释放锁时间
      * @return
      */
-    public static boolean tryLock(String lockKey, TimeUnit unit, int waitTime, int leaseTime) {
+    public boolean tryLock(String lockKey, TimeUnit unit, int waitTime, int leaseTime) {
         return distributedLocker.tryLock(lockKey, unit, waitTime, leaseTime);
+    }
+
+    public boolean isLock(String lockKey){
+        return distributedLocker.isLock(lockKey);
+    }
+
+    public boolean isHeldByCurrentThread(String lockKey){
+        return distributedLocker.isHeldByCurrentThread(lockKey);
     }
 
 //    /**
@@ -87,7 +107,7 @@ public class RedisLockUtil {
 //     * @param name
 //     * @return
 //     */
-//    public static RCountDownLatch getCountDownLatch(String name){
+//    public RCountDownLatch getCountDownLatch(String name){
 //        return distributedLocker.getCountDownLatch(name);
 //    }
 //
@@ -97,7 +117,7 @@ public class RedisLockUtil {
 //     * @param name
 //     * @return
 //     */
-//    public static RSemaphore getSemaphore(String name){
+//    public RSemaphore getSemaphore(String name){
 //        return distributedLocker.getSemaphore(name);
 //    }
 }

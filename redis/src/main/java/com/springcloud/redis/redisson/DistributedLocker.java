@@ -1,4 +1,4 @@
-package com.springcloud.redis.lock;
+package com.springcloud.redis.redisson;
 
 import org.redisson.api.RLock;
 
@@ -21,4 +21,9 @@ public interface DistributedLocker {
     void unlock(String lockKey);
 
     void unlock(RLock lock);
+
+    boolean isLock(String lockKey);
+
+    boolean isHeldByCurrentThread(String lockKey);
+
 }

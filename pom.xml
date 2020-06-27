@@ -58,6 +58,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
+            <scope>compile</scope>
         </dependency>
         <!--Spring Boot 执行器组件-->
         <dependency>

@@ -8,7 +8,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://101.200.228.9/quartz?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://101.200.228.9/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
     password: 123456
     initialSize: 5
@@ -40,7 +40,7 @@ spring:
   redis:
     host: 101.200.228.9
     port: 6379
-    password: 123456
+    password: lmnredis
     max-wait: 30000 # 连接池最大阻塞等待时间
     max-active: 100 # 连接池最大连接数
     max-idle: 20 #最大空闲连接数
@@ -66,3 +66,6 @@ eureka:
     enable-self-preservation: false
     ##超过20之后才剔除
     eviction-interval-timer-in-ms: 20000
+redisson:
+  address: redis://101.200.228.9:6379
+  password: lmnredis
