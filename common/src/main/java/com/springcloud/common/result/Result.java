@@ -16,11 +16,16 @@ public class Result<T>{
     private T data;
     //返回码
     private String code;
-    //返回sucess
+    //返回success
     private Boolean success;
     // 返回描述
     private String msg;
-    
+
+    public Result(Boolean success, String msg) {
+        this.success = success;
+        this.msg = msg;
+    }
+
     public Result<T> setCode(ResultEnum ResultEnum) {
         this.code = ResultEnum.getCode();
         return this;
