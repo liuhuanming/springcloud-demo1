@@ -20,7 +20,7 @@ public class FileController {
 
 
     @ApiOperation(value = "测试")
-    @GetMapping("/")
+    @GetMapping("/list")
     public Result<String> list(){
         return Response.ok("111");
     }

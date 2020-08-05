@@ -10,7 +10,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://101.200.228.9/blog?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
-    password: 41955989
+    password: lmn41955989
     initialSize: 5
     minIdle: 5
     maxActive: 20
@@ -57,3 +57,8 @@ eureka:
     enable-self-preservation: false
     ##超过20之后才剔除
     eviction-interval-timer-in-ms: 20000
+netty:
+  file:
+    enabled: true
+    path: G:\
+    port: 8889
