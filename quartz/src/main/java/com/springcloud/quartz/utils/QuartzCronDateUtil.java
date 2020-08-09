@@ -15,7 +15,7 @@ public class QuartzCronDateUtil {
      * @param dateFormat
      * @return
      */
-    public static String formatDateByPattern(Date date,String dateFormat){
+    public static String formatDateByPattern(Date date, String dateFormat) {
         SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
         String formatTimeStr = null;
         if (date != null) {
@@ -23,13 +23,14 @@ public class QuartzCronDateUtil {
         }
         return formatTimeStr;
     }
+
     /***
      * convert Date to cron
      * @param date:时间
      * @return
      */
-    public static String getCron(Date date){
-        String dateFormat="ss mm HH dd MM ? yyyy";
-        return formatDateByPattern(date,dateFormat);
+    public static String getCron(Date date) {
+        String dateFormat = "ss mm HH dd MM ? yyyy";
+        return formatDateByPattern(date, dateFormat);
     }
 }

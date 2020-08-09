@@ -11,16 +11,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class NettyApplicationTests {
-	@Autowired
-	FileDao dao;
+    @Autowired
+    FileDao dao;
 
-	@Test
-	public void contextLoads() {
-		FileEntity fileEntity = new FileEntity();
-		fileEntity.setFileName("测试");
-		fileEntity.setFileUrl("C://");
-		FileEntity save = dao.save(fileEntity);
-		System.out.printf("save" + save);
-	}
+    @Test
+    public void contextLoads() {
+        FileEntity fileEntity = new FileEntity();
+        fileEntity.setFileName("测试");
+        fileEntity.setFileUrl("C://");
+        FileEntity save = dao.save(fileEntity);
+        System.out.printf("save" + save);
+    }
 
 }

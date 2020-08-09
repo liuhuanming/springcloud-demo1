@@ -31,8 +31,8 @@ public class OsInfoUtil {
     }
 
     public static void main(String[] args) {
-        getOsInfos().forEach(o->{
-            System.out.println(o.getName()+">>"+o.getValue());
+        getOsInfos().forEach(o -> {
+            System.out.println(o.getName() + ">>" + o.getValue());
         });
     }
 }

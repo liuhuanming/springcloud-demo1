@@ -21,14 +21,14 @@ public class Client {
         EventLoopGroup group = new NioEventLoopGroup();
         Bootstrap b = new Bootstrap();
         b.group(group).channel(NioSocketChannel.class)
-            .handler(new ChannelInitializer<SocketChannel>() {
-                @Override
-                protected void initChannel(SocketChannel sc) throws Exception {
-                    sc.pipeline().addLast("decoder", new StringDecoder());
-                    sc.pipeline().addLast("encoder", new StringEncoder());
-                    sc.pipeline().addLast(new ClientHandler());
-                }
-            });
+                .handler(new ChannelInitializer<SocketChannel>() {
+                    @Override
+                    protected void initChannel(SocketChannel sc) throws Exception {
+                        sc.pipeline().addLast("decoder", new StringDecoder());
+                        sc.pipeline().addLast("encoder", new StringEncoder());
+                        sc.pipeline().addLast(new ClientHandler());
+                    }
+                });
         try {
             ChannelFuture cf = b.connect("127.0.0.1", 8088).sync();
             byte[] msg = "发送第1条消息".getBytes();

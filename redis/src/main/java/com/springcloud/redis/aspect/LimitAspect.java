@@ -33,11 +33,11 @@ import java.lang.reflect.Method;
 public class LimitAspect {
 
 
-    private final RedisTemplate<Object,Object> redisTemplate;
+    private final RedisTemplate<Object, Object> redisTemplate;
 
     private static final Logger logger = LoggerFactory.getLogger(LimitAspect.class);
 
-    public LimitAspect(RedisTemplate<Object,Object> redisTemplate) {
+    public LimitAspect(RedisTemplate<Object, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
 
@@ -61,7 +61,7 @@ public class LimitAspect {
             }
         }
         ImmutableList<Object> keys = ImmutableList.of(
-                StrUtil.join(limit.prefix(), "_", key, "_", request.getRequestURI().replaceAll("/","_")));
+                StrUtil.join(limit.prefix(), "_", key, "_", request.getRequestURI().replaceAll("/", "_")));
 
         String luaScript = buildLuaScript();
         RedisScript<Number> redisScript = new DefaultRedisScript<>(luaScript, Number.class);

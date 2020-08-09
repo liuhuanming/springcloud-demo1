@@ -43,6 +43,7 @@ public class MathUtils {
 
     /**
      * 生产一个随机的指定位数的字符串数字
+     *
      * @param length
      * @return
      */
@@ -143,6 +144,6 @@ public class MathUtils {
     }
 
     public static void main(String[] args) {
-        System.out.println(randomDigitNumber( 7));
+        System.out.println(randomDigitNumber(7));
     }
 }

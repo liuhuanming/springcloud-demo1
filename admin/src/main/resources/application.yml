@@ -4,26 +4,26 @@ spring:
   application:
     name: admin-server
   security:
-      user:
-        name: admin
-        password: admin
+    user:
+      name: admin
+      password: admin
 management:
   endpoints:
     web:
       exposure:
-        #¿ª·ÅËùÓĞÒ³Ãæ½Úµã  Ä¬ÈÏÖ»¿ªÆôÁËhealth¡¢infoÁ½¸ö½Úµã
+        #ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½Úµï¿½  Ä¬ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½healthï¿½ï¿½infoï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
         include: '*'
   endpoint:
     health:
-      #ÏÔÊ¾½¡¿µ¾ßÌåĞÅÏ¢  Ä¬ÈÏ²»»áÏÔÊ¾ÏêÏ¸ĞÅÏ¢
+      #ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢  Ä¬ï¿½Ï²ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ï¸ï¿½ï¿½Ï¢
       show-details: always
 eureka:
   instance:
     hostname: 127.0.0.1
     instance:
-    ##¿Í»§¶Ë×Ô¼º¸æËß·şÎñ¶Ë¶àÉÙÃë·¢ËÍÒ»¸öĞÄÌø°ü
+    ##ï¿½Í»ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ß·ï¿½ï¿½ï¿½Ë¶ï¿½ï¿½ï¿½ï¿½ë·¢ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     lease-renewal-interval-in-seconds: 1
-    ##¿Í»§¶Ë¸æËß·şÎñ¶ËµÈ´ı¶àÉÙÃëÖ®ºóÈç¹û»¹ÊÇÃ»ÓĞÊÕµ½ĞÄÌø°ü£¬ÄÇ¾Í°ÑÎÒÌŞ³ı°É
+    ##ï¿½Í»ï¿½ï¿½Ë¸ï¿½ï¿½ß·ï¿½ï¿½ï¿½ËµÈ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾Í°ï¿½ï¿½ï¿½ï¿½Ş³ï¿½ï¿½ï¿½
     lease-expiration-duration-in-seconds: 2
     metadata-map:
       user.name: admin
@@ -31,12 +31,12 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://127.0.0.1:8081/eureka/
-    ###ÊÇ·ñĞèÒª×¢²áµ½eurekaÉÏ
+    ###ï¿½Ç·ï¿½ï¿½ï¿½Òª×¢ï¿½áµ½eurekaï¿½ï¿½
     register-with-eureka: true
-    ###ĞèÒª¼ìË÷·şÎñ
+    ###ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     fetch-registry: true
   server:
-    ##ÊÇ·ñ¿ªÆô×ÔÎÒ±£»¤»úÖÆ
+    ##ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     enable-self-preservation: false
-    ##³¬¹ı20Ö®ºó²ÅÌŞ³ı
+    ##ï¿½ï¿½ï¿½ï¿½20Ö®ï¿½ï¿½ï¿½ï¿½Ş³ï¿½
     eviction-interval-timer-in-ms: 20000

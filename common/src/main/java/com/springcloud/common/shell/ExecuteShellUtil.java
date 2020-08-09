@@ -22,7 +22,7 @@ public class ExecuteShellUtil {
 
     Session session;
 
-    public ExecuteShellUtil(final String ipAddress, final String username, final String password,int port) {
+    public ExecuteShellUtil(final String ipAddress, final String username, final String password, int port) {
         try {
             JSch jsch = new JSch();
             session = jsch.getSession(username, ipAddress, port);
@@ -57,7 +57,7 @@ public class ExecuteShellUtil {
         } catch (Exception e) {
             e.printStackTrace();
             return -1;
-        }finally {
+        } finally {
             IoUtil.close(printWriter);
             IoUtil.close(input);
             if (channel != null) {
@@ -67,7 +67,7 @@ public class ExecuteShellUtil {
         return returnCode;
     }
 
-    public void close(){
+    public void close() {
         if (session != null) {
             session.disconnect();
         }

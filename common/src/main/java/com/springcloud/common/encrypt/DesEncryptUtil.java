@@ -22,7 +22,7 @@ public class DesEncryptUtil {
     private static IvParameterSpec iv = new IvParameterSpec(privateKey.getBytes(StandardCharsets.UTF_8));
 
     private static DESKeySpec getDesKeySpec(String source) throws Exception {
-        if (source == null || source.length() == 0){
+        if (source == null || source.length() == 0) {
             return null;
         }
         cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
@@ -72,7 +72,7 @@ public class DesEncryptUtil {
 
     private static byte[] hex2byte(byte[] b) {
         int size = 2;
-        if ((b.length % size) != 0){
+        if ((b.length % size) != 0) {
             throw new IllegalArgumentException("长度不是偶数");
         }
         byte[] b2 = new byte[b.length / 2];

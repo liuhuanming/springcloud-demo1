@@ -31,6 +31,7 @@ public class LogAspect {
 
     /**
      * 配置环绕通知，使用在方法logPointcut()上注册的切入点
+     *
      * @param proceedingJoinPoint
      * @return
      */
@@ -46,10 +47,11 @@ public class LogAspect {
 
     /**
      * 配置异常通知
+     *
      * @param joinPoint
      * @param e
      */
-    @AfterThrowing(pointcut = "logPointcut()",throwing = "e")
+    @AfterThrowing(pointcut = "logPointcut()", throwing = "e")
     public void logAfterThrowing(JoinPoint joinPoint, Throwable e) {
         //执行时间
         long time = System.currentTimeMillis() - currentTime.get();

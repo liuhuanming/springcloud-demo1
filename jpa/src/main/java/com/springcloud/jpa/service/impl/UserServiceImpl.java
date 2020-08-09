@@ -19,20 +19,20 @@ import java.util.List;
  * @date: 2020-05-31 22:12
  */
 @Service
-public class UserServiceImpl implements UserService  {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
-    
+
     @Autowired
     private JPAQueryFactory jpaQueryFactory;
 
     @Override
     public List<UserEntity> findAll(UserEntity userEntity) {
         QUserEntity qUserEntity = QUserEntity.userEntity;
-      List<UserEntity> list = jpaQueryFactory
+        List<UserEntity> list = jpaQueryFactory
                 .selectFrom(qUserEntity)
-                .where(qUserEntity.account.like("%"+userEntity.getAccount()+"%"))
+                .where(qUserEntity.account.like("%" + userEntity.getAccount() + "%"))
                 .fetch();
         return list;
     }
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService  {
         QUserEntity qUserEntity = QUserEntity.userEntity;
         QRoleEntity qRoleEntity = QRoleEntity.roleEntity;
         QUserRoleEntity qUserRoleEntity = QUserRoleEntity.userRoleEntity;
-        List<Tuple> userInfoList = jpaQueryFactory.select(qUserEntity,qRoleEntity)
+        List<Tuple> userInfoList = jpaQueryFactory.select(qUserEntity, qRoleEntity)
                 .from(qUserEntity)
                 .leftJoin(qUserRoleEntity).on(qUserEntity.id.eq(qUserRoleEntity.userId))
                 .leftJoin(qRoleEntity).on(qRoleEntity.id.eq((qUserRoleEntity.roleId)))

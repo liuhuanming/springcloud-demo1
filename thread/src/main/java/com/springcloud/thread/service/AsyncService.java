@@ -19,14 +19,14 @@ public class AsyncService {
         ThreadPoolExecutor threadPool = ThreadPoolExecutorUtil.getThreadPool();
         for (int i = 0; i < 10; i++) {
             int finalI = i;
-            threadPool.execute(()->{
+            threadPool.execute(() -> {
                 try {
                     Thread.sleep(100);
-                    System.err.println("来了"+ finalI);
+                    System.err.println("来了" + finalI);
                 } catch (InterruptedException e) {
 
                 }
-                System.err.println("当前执行任务的线程名称是"+Thread.currentThread().getName());
+                System.err.println("当前执行任务的线程名称是" + Thread.currentThread().getName());
             });
         }
         threadPool.shutdown();

@@ -40,8 +40,8 @@ public class MemoryUtil {
     }
 
     public static void main(String[] args) throws SigarException {
-        getMemoryInfos().forEach(m->{
-            System.out.println(m.getName()+">>"+m.getValue());
+        getMemoryInfos().forEach(m -> {
+            System.out.println(m.getName() + ">>" + m.getValue());
         });
     }
 }

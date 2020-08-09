@@ -32,6 +32,7 @@ import javax.servlet.http.HttpServletResponse;
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     /**
      * 捕获  MyException 异常
+     *
      * @param request  request
      * @param e        exception
      * @param response response
@@ -48,6 +49,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
      * 捕获  RuntimeException 异常
      * 如果你觉得在一个 exceptionHandler 通过  if (e instanceof xxxException) 太麻烦
      * 那么你还可以自己写多个不同的 exceptionHandler 处理不同异常
+     *
      * @param request  request
      * @param e        exception
      * @param response response
@@ -62,19 +64,21 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     /**
      * 通用的接口映射异常处理方
+     *
      * @return
      */
     @Override
     protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatus status, WebRequest request) {
         if (ex instanceof MethodArgumentNotValidException) {
             MethodArgumentNotValidException exception = (MethodArgumentNotValidException) ex;
-            return new ResponseEntity<>(new RM2(false, exception.getBindingResult().getAllErrors().get(0).getDefaultMessage()), status);            }
+            return new ResponseEntity<>(new RM2(false, exception.getBindingResult().getAllErrors().get(0).getDefaultMessage()), status);
+        }
         if (ex instanceof MethodArgumentTypeMismatchException) {
             MethodArgumentTypeMismatchException exception = (MethodArgumentTypeMismatchException) ex;
             logger.error("参数转换失败，方法：" + exception.getParameter().getMethod().getName() + "，参数：" + exception.getName()
                     + ",信息：" + exception.getLocalizedMessage());
-            return new ResponseEntity<>(new Result(false,"参数转换失败"), status);
+            return new ResponseEntity<>(new Result(false, "参数转换失败"), status);
         }
-        return new ResponseEntity<>(new Result<>(false,"参数转换失败"), status);
+        return new ResponseEntity<>(new Result<>(false, "参数转换失败"), status);
     }
 }

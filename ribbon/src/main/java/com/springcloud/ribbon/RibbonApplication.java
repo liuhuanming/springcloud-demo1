@@ -16,12 +16,13 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 public class RibbonApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(RibbonApplication.class, args);
-	}
-	@Bean
-	@LoadBalanced
-	public RestTemplate restTemplate(){
-		return new RestTemplate();
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(RibbonApplication.class, args);
+    }
+
+    @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 }

@@ -53,7 +53,7 @@ public class FileServer {
             try {
                 // 判断是否绑定ip
                 if (StringUtils.isNotEmpty(nettyFileProperties.getBindIp())) {
-                    channel = bootstrap.bind(nettyFileProperties.getBindIp(),nettyFileProperties.getPort()).sync().channel();
+                    channel = bootstrap.bind(nettyFileProperties.getBindIp(), nettyFileProperties.getPort()).sync().channel();
                 } else {
                     channel = bootstrap.bind(nettyFileProperties.getPort()).sync().channel();
                 }

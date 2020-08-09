@@ -23,7 +23,7 @@ public class TheadFactoryName implements ThreadFactory {
 
     private TheadFactoryName(String name) {
         SecurityManager securityManager = System.getSecurityManager();
-        threadGroup = (securityManager != null)?securityManager.getThreadGroup():
+        threadGroup = (securityManager != null) ? securityManager.getThreadGroup() :
                 Thread.currentThread().getThreadGroup();
         this.namePrefix = name + POOL_NUM.getAndIncrement();
     }
@@ -34,14 +34,14 @@ public class TheadFactoryName implements ThreadFactory {
         Thread t = new Thread(
                 threadGroup
                 , r
-                ,namePrefix + "-thread-" + threadNum.getAndIncrement(),
+                , namePrefix + "-thread-" + threadNum.getAndIncrement(),
                 0);
         // 不设置守护线程
         if (t.isDaemon()) {
             t.setDaemon(false);
         }
         // 线程的优先级
-        if (t.getPriority()!=Thread.NORM_PRIORITY) {
+        if (t.getPriority() != Thread.NORM_PRIORITY) {
             t.setPriority(Thread.NORM_PRIORITY);
         }
         return t;

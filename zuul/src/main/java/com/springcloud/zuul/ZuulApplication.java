@@ -29,32 +29,34 @@ import java.util.List;
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 public class ZuulApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ZuulApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ZuulApplication.class, args);
+    }
 
-	@RefreshScope
-	@ConfigurationProperties("zuul")
-	public ZuulProperties zuulProperties() {
-		return new ZuulProperties();
-	}
-	@Component
-	@Primary
-	class DocumentationConfig implements SwaggerResourcesProvider {
-		@Override
-		public List<SwaggerResource> get() {
-			List resources = new ArrayList<>();
-			// 第一个参数可以随便写, 第二个参数写网关上配置的访问服务的名称
-			resources.add(swaggerResource("app-itmayiedu-user", "/api/user/v2/api-docs", "2.0"));
-			resources.add(swaggerResource("app-itmayiedu-blog", "/api/blog/v2/api-docs", "2.0"));
-			return resources;
-		}
-		private SwaggerResource swaggerResource(String name, String location, String version) {
-			SwaggerResource swaggerResource = new SwaggerResource();
-			swaggerResource.setName(name);
-			swaggerResource.setLocation(location);
-			swaggerResource.setSwaggerVersion(version);
-			return swaggerResource;
-		}
-	}
+    @RefreshScope
+    @ConfigurationProperties("zuul")
+    public ZuulProperties zuulProperties() {
+        return new ZuulProperties();
+    }
+
+    @Component
+    @Primary
+    class DocumentationConfig implements SwaggerResourcesProvider {
+        @Override
+        public List<SwaggerResource> get() {
+            List resources = new ArrayList<>();
+            // 第一个参数可以随便写, 第二个参数写网关上配置的访问服务的名称
+            resources.add(swaggerResource("app-itmayiedu-user", "/api/user/v2/api-docs", "2.0"));
+            resources.add(swaggerResource("app-itmayiedu-blog", "/api/blog/v2/api-docs", "2.0"));
+            return resources;
+        }
+
+        private SwaggerResource swaggerResource(String name, String location, String version) {
+            SwaggerResource swaggerResource = new SwaggerResource();
+            swaggerResource.setName(name);
+            swaggerResource.setLocation(location);
+            swaggerResource.setSwaggerVersion(version);
+            return swaggerResource;
+        }
+    }
 }

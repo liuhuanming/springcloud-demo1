@@ -11,8 +11,8 @@ import springfox.documentation.swagger.web.UiConfiguration;
 
 @Configuration
 public class SwaggerConfig {
-	
-	@Bean
+
+    @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(new ApiInfoBuilder()
@@ -26,6 +26,7 @@ public class SwaggerConfig {
                 .paths(PathSelectors.any())
                 .build();
     }
+
     @Bean
     UiConfiguration uiConfig() {
         return new UiConfiguration(null, "list", "alpha", "schema",

@@ -51,13 +51,15 @@ import java.util.concurrent.TimeUnit;
 public class EsServiceImpl implements EsService {
     @Autowired
     private RestHighLevelClient restHighLevelClient;
+
     /**
      * 分页条件查询
+     *
      * @param index,type,text,searchSourceBuilder
      * @param searchSourceBuilder
      */
     public List<Map<String, Object>> searchBySearchSourceBuilde(String index, String type, String text,
-                                                     SearchSourceBuilder searchSourceBuilder){
+                                                                SearchSourceBuilder searchSourceBuilder) {
         // 组装SearchRequest请求
         SearchRequest searchRequest = new SearchRequest(index);
         // 创建匹配查询构造器
@@ -91,7 +93,7 @@ public class EsServiceImpl implements EsService {
         try {
             searchResponse = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
             SearchHit[] searchHits = searchResponse.getHits().getHits();
-            if (searchHits !=null && searchHits.length>0) {
+            if (searchHits != null && searchHits.length > 0) {
                 for (SearchHit searchHit : searchHits) {
                     Map<String, Object> map = searchHit.getSourceAsMap();
                     // 替换高亮
@@ -110,6 +112,7 @@ public class EsServiceImpl implements EsService {
 
     /**
      * 是否存在index
+     *
      * @param indexName
      * @return
      */
@@ -122,7 +125,7 @@ public class EsServiceImpl implements EsService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return  exists;
+        return exists;
     }
 
     /**
@@ -131,7 +134,7 @@ public class EsServiceImpl implements EsService {
      * @param
      * @return
      */
-    public GetResponse getDocument(String index, String type, String id) throws Exception{
+    public GetResponse getDocument(String index, String type, String id) throws Exception {
         GetRequest getRequest = new GetRequest(index, type, id);
         GetResponse getResponse = null;
         try {
@@ -147,6 +150,7 @@ public class EsServiceImpl implements EsService {
 
     /**
      * 添加记录
+     *
      * @param
      * @return
      */
@@ -159,13 +163,13 @@ public class EsServiceImpl implements EsService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return  indexResponse;
+        return indexResponse;
     }
 
     @Override
     public UpdateResponse updateDocument(String index, String type, String text, String id) {
         UpdateRequest updateRequest = new UpdateRequest(index, type, id);
-        updateRequest.doc(text,XContentType.JSON);
+        updateRequest.doc(text, XContentType.JSON);
         UpdateResponse updateResponse = null;
         try {
             updateResponse = restHighLevelClient.update(updateRequest, RequestOptions.DEFAULT);
@@ -189,12 +193,13 @@ public class EsServiceImpl implements EsService {
 
     /**
      * 创建索引
+     *
      * @param indexName
      * @return
      */
     public CreateIndexResponse createIndex(String indexName) {
         CreateIndexRequest request = new CreateIndexRequest(indexName);
-        CreateIndexResponse createIndexResponse = null ;
+        CreateIndexResponse createIndexResponse = null;
         try {
             createIndexResponse = restHighLevelClient.indices().create(request, RequestOptions.DEFAULT);
         } catch (IOException e) {
@@ -206,16 +211,17 @@ public class EsServiceImpl implements EsService {
 
     /**
      * 删除索引
+     *
      * @param indexName
      * @return
      */
-    public boolean deleteIndex(String indexName) throws Exception{
+    public boolean deleteIndex(String indexName) throws Exception {
         DeleteIndexRequest request = new DeleteIndexRequest(indexName);
-        AcknowledgedResponse deleteResponse = null ;
+        AcknowledgedResponse deleteResponse = null;
         try {
             deleteResponse = restHighLevelClient.indices().delete(request, RequestOptions.DEFAULT);
         } catch (ElasticsearchException e) {
-            log.error("es删除{}索引失败",indexName);
+            log.error("es删除{}索引失败", indexName);
             if (e.status() == RestStatus.NOT_FOUND) {
                 return true;
             } else {
@@ -229,8 +235,9 @@ public class EsServiceImpl implements EsService {
     /**
      * 批量插入  批量修改删除原理相同，也可混合 只需在 bulkRequest.add 不同请求即可
      * 也可以插入时设置id
-     * @param jsonStrList  待插入集合 注：每个String元素需为json字符串
-     * @param index 索引
+     *
+     * @param jsonStrList 待插入集合 注：每个String元素需为json字符串
+     * @param index       索引
      * @return
      */
     public BulkResponse bulkInsert(List<String> jsonStrList, String index, String type) {
@@ -253,6 +260,7 @@ public class EsServiceImpl implements EsService {
 
     /**
      * 批量删除
+     *
      * @param index
      * @param type
      * @param deleteText
@@ -260,7 +268,7 @@ public class EsServiceImpl implements EsService {
      * @return
      */
     @Override
-    public BulkResponse bulkDelete(String index, String type, String deleteText, Integer maxSize){
+    public BulkResponse bulkDelete(String index, String type, String deleteText, Integer maxSize) {
         int num = 0;
 
         // 搜索构造器

@@ -21,11 +21,11 @@ public class SpringBeanTools implements ApplicationContextAware {
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
+
     /**
      * 获取applicationContext
      *
-     * @return
-     *      applicationContext
+     * @return applicationContext
      */
     public static ApplicationContext getApplicationContext() {
         return applicationContext;
@@ -34,37 +34,33 @@ public class SpringBeanTools implements ApplicationContextAware {
     /**
      * 通过name获取 Bean.
      *
-     * @param name
-     *          bean name
-     * @return
-     *          bean
+     * @param name bean name
+     * @return bean
      */
-    public static Object getBean(String name){
+    public static Object getBean(String name) {
         return getApplicationContext().getBean(name);
     }
 
     /**
      * 通过class获取Bean.
-     * @param clazz
-     *          class
+     *
+     * @param clazz class
      * @param <T>
      * @return
      */
-    public static <T> T getBean(Class<T> clazz){
+    public static <T> T getBean(Class<T> clazz) {
         return getApplicationContext().getBean(clazz);
     }
 
     /**
      * 通过name,以及Clazz返回指定的Bean
-     * @param name
-     *          bean name
-     * @param clazz
-     *          class
+     *
+     * @param name  bean name
+     * @param clazz class
      * @param <T>
-     * @return
-     *          bean
+     * @return bean
      */
-    public static <T> T getBean(String name,Class<T> clazz){
+    public static <T> T getBean(String name, Class<T> clazz) {
         return getApplicationContext().getBean(name, clazz);
     }
 }

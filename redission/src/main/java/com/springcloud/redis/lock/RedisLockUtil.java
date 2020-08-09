@@ -28,6 +28,7 @@ public class RedisLockUtil {
 
     /**
      * 加锁
+     *
      * @param lockKey
      * @return
      */
@@ -37,6 +38,7 @@ public class RedisLockUtil {
 
     /**
      * 释放锁
+     *
      * @param lockKey
      */
     public void unlock(String lockKey) {
@@ -45,6 +47,7 @@ public class RedisLockUtil {
 
     /**
      * 释放锁
+     *
      * @param lock
      */
     public void unlock(RLock lock) {
@@ -53,6 +56,7 @@ public class RedisLockUtil {
 
     /**
      * 带超时的锁
+     *
      * @param lockKey
      * @param timeout 超时时间   单位：秒
      */
@@ -62,18 +66,20 @@ public class RedisLockUtil {
 
     /**
      * 带超时的锁
+     *
      * @param lockKey
-     * @param unit 时间单位
+     * @param unit    时间单位
      * @param timeout 超时时间
      */
-    public RLock lock(String lockKey, int timeout, TimeUnit unit ) {
+    public RLock lock(String lockKey, int timeout, TimeUnit unit) {
         return distributedLocker.lock(lockKey, unit, timeout);
     }
 
     /**
      * 尝试获取锁
+     *
      * @param lockKey
-     * @param waitTime 最多等待时间
+     * @param waitTime  最多等待时间
      * @param leaseTime 上锁后自动释放锁时间
      * @return
      */
@@ -83,9 +89,10 @@ public class RedisLockUtil {
 
     /**
      * 尝试获取锁
+     *
      * @param lockKey
-     * @param unit 时间单位
-     * @param waitTime 最多等待时间
+     * @param unit      时间单位
+     * @param waitTime  最多等待时间
      * @param leaseTime 上锁后自动释放锁时间
      * @return
      */
@@ -93,11 +100,11 @@ public class RedisLockUtil {
         return distributedLocker.tryLock(lockKey, unit, waitTime, leaseTime);
     }
 
-    public boolean isLock(String lockKey){
+    public boolean isLock(String lockKey) {
         return distributedLocker.isLock(lockKey);
     }
 
-    public boolean isHeldByCurrentThread(String lockKey){
+    public boolean isHeldByCurrentThread(String lockKey) {
         return distributedLocker.isHeldByCurrentThread(lockKey);
     }
 

@@ -12,6 +12,8 @@ import java.util.List;
  */
 public interface UserService {
     List<UserEntity> findAll(UserEntity userEntity);
+
     UserEntity findOne(UserEntity userEntity);
+
     List<Tuple> findUserInfo(UserEntity userEntity);
 }

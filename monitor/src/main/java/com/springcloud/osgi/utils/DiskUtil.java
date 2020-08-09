@@ -64,8 +64,8 @@ public class DiskUtil {
     }
 
     public static void main(String[] args) throws SigarException {
-        getFileInfos().stream().forEach(l->{
-            System.out.println(l.getName()+">>>>"+l.getValue());
+        getFileInfos().stream().forEach(l -> {
+            System.out.println(l.getName() + ">>>>" + l.getValue());
         });
     }
 }

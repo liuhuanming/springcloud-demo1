@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author: lmn
  * @date: 2019-10-26 21:45
  */
-@Api(value = "文件",tags = "文件模块")
+@Api(value = "文件", tags = "文件模块")
 @RequestMapping("/file")
 @RestController
 public class FileController {
@@ -21,7 +21,7 @@ public class FileController {
 
     @ApiOperation(value = "测试")
     @GetMapping("/list")
-    public Result<String> list(){
+    public Result<String> list() {
         return Response.ok("111");
     }
 

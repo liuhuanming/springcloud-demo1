@@ -34,7 +34,7 @@ public class ThreadController {
 
     @ApiOperation("测试Task")
     @GetMapping("/test1")
-    public void test1(){
+    public void test1() {
         asyncService.executeAsync();
     }
 }

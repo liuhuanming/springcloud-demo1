@@ -19,6 +19,7 @@ import springfox.documentation.service.Parameter;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import com.fasterxml.classmate.TypeResolver;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,10 +29,10 @@ import static springfox.documentation.schema.AlternateTypeRules.newRule;
 //@Configuration
 public class SwaggerConfig1 {
 
-//    @Value("${jwt.header}")
+    //    @Value("${jwt.header}")
     private String tokenHeader;
 
-//    @Value("${jwt.token-start-with}")
+    //    @Value("${jwt.token-start-with}")
     private String tokenStartWith;
 
     private Boolean enabled = true;
@@ -67,7 +68,7 @@ public class SwaggerConfig1 {
 }
 
 /**
- *  将Pageable转换展示在swagger中
+ * 将Pageable转换展示在swagger中
  */
 @Configuration
 class SwaggerDataConfig {

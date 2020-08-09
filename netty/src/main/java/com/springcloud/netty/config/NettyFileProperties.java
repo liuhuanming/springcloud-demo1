@@ -15,19 +15,19 @@ import javax.validation.constraints.Pattern;
  * @author: Think
  * @date: 2020-08-04 00:06
  */
-@ConfigurationProperties(prefix="netty.file")
+@ConfigurationProperties(prefix = "netty.file")
 @Data
 @Validated
 public class NettyFileProperties {
 
     @NotNull(message = "端口不能为空")
-    @Range(min=1000, max=60000)
+    @Range(min = 1000, max = 60000)
     private Integer port;
 
     @NotNull(message = "文件路径不能为空")
     private String path;
 
-    @Pattern(regexp="((25[0-5]|2[0-4]\\d|((1\\d{2})|([1-9]?\\d)))\\.){3}(25[0-5]|2[0-4]\\d|((1\\d{2})|([1-9]?\\d)))",message="ip地址格式不正确")
+    @Pattern(regexp = "((25[0-5]|2[0-4]\\d|((1\\d{2})|([1-9]?\\d)))\\.){3}(25[0-5]|2[0-4]\\d|((1\\d{2})|([1-9]?\\d)))", message = "ip地址格式不正确")
     private String bindIp;
 
     //必须大于1 ,老板线程，即认为是分配工作的线程

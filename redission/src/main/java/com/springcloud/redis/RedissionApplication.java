@@ -13,8 +13,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableScheduling
 public class RedissionApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(RedissionApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(RedissionApplication.class, args);
+    }
 
 }

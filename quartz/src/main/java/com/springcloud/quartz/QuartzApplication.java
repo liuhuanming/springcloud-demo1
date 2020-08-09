@@ -13,8 +13,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableScheduling
 public class QuartzApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(QuartzApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(QuartzApplication.class, args);
+    }
 
 }

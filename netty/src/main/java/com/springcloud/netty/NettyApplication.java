@@ -9,8 +9,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 public class NettyApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(NettyApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(NettyApplication.class, args);
+    }
 
 }

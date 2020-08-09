@@ -14,7 +14,7 @@ import java.util.List;
 
 @Slf4j
 @Configuration
-public class RestConfig{
+public class RestConfig {
     @Value("${elasticsearch.nodes}")
     private List<String> nodes;
 
@@ -45,7 +45,7 @@ public class RestConfig{
         for (String node : nodes) {
             try {
                 String[] parts = StringUtils.split(node, ":");
-                Assert.notNull(parts,"Must defined");
+                Assert.notNull(parts, "Must defined");
                 Assert.state(parts.length == 2, "Must be defined as 'host:port'");
                 httpHosts.add(new HttpHost(parts[0], Integer.parseInt(parts[1]), schema));
             } catch (RuntimeException ex) {

@@ -29,7 +29,7 @@ public class TestApplication {
         UserEntity userEntity = new UserEntity();
         userEntity.setAccount("测试");
         List<UserEntity> all = userService.findAll(userEntity);
-        all.forEach(l->{
+        all.forEach(l -> {
             System.out.println(l.toString());
         });
     }
@@ -39,7 +39,7 @@ public class TestApplication {
         UserEntity userEntity = new UserEntity();
         userEntity.setAccount("测试");
         List<Tuple> all = userService.findUserInfo(userEntity);
-        all.forEach(l->{
+        all.forEach(l -> {
             System.out.println(l.toString());
         });
     }

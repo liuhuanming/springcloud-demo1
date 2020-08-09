@@ -20,7 +20,8 @@ public class RedisDistributedLocker implements DistributedLocker {
     private RedissonClient redissonClient;
 
     /**
-     *  加锁操作 (锁有效时间采用默认时间30秒）
+     * 加锁操作 (锁有效时间采用默认时间30秒）
+     *
      * @param lockKey
      * @return
      */
@@ -33,7 +34,8 @@ public class RedisDistributedLocker implements DistributedLocker {
 
     /**
      * 加锁设置，设置锁的有效时间
-     * @param lockKey 锁名称
+     *
+     * @param lockKey   锁名称
      * @param leaseTime 锁有效时间
      * @return
      */
@@ -46,13 +48,14 @@ public class RedisDistributedLocker implements DistributedLocker {
 
     /**
      * 加锁操作
+     *
      * @param lockKey 锁名称
-     * @param unit 单位
+     * @param unit    单位
      * @param timeout 超时时间
      * @return
      */
     @Override
-    public RLock lock(String lockKey, TimeUnit unit ,int timeout) {
+    public RLock lock(String lockKey, TimeUnit unit, int timeout) {
         RLock lock = redissonClient.getLock(lockKey);
         lock.lock(timeout, unit);
         return lock;
@@ -60,9 +63,10 @@ public class RedisDistributedLocker implements DistributedLocker {
 
     /**
      * 加锁操作(tryLock锁，有等待时间）
-     * @param lockKey 锁名称
-     * @param unit 单位
-     * @param waitTime 等待时间
+     *
+     * @param lockKey   锁名称
+     * @param unit      单位
+     * @param waitTime  等待时间
      * @param leaseTime 锁有效时间
      * @return
      */
@@ -78,6 +82,7 @@ public class RedisDistributedLocker implements DistributedLocker {
 
     /**
      * 解锁操作
+     *
      * @param lockKey
      */
     @Override
@@ -88,6 +93,7 @@ public class RedisDistributedLocker implements DistributedLocker {
 
     /**
      * 解锁操作
+     *
      * @param lock
      */
     @Override
@@ -97,6 +103,7 @@ public class RedisDistributedLocker implements DistributedLocker {
 
     /**
      * 判断该锁是否已经被线程持有
+     *
      * @param lockKey 锁名称
      * @return 是否
      */
@@ -108,6 +115,7 @@ public class RedisDistributedLocker implements DistributedLocker {
 
     /**
      * 判断该线程是否持有当前锁
+     *
      * @param lockKey 锁名称
      * @return 是否
      */

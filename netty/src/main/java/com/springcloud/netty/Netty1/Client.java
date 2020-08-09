@@ -19,12 +19,12 @@ public class Client {
         EventLoopGroup group = new NioEventLoopGroup();
         Bootstrap b = new Bootstrap();
         b.group(group).channel(NioSocketChannel.class)
-            .handler(new ChannelInitializer<SocketChannel>() {
-                @Override
-                protected void initChannel(SocketChannel socketChannel) throws Exception {
-                    socketChannel.pipeline().addLast(new ClientHandler());
-                }
-            });
+                .handler(new ChannelInitializer<SocketChannel>() {
+                    @Override
+                    protected void initChannel(SocketChannel socketChannel) throws Exception {
+                        socketChannel.pipeline().addLast(new ClientHandler());
+                    }
+                });
         ChannelFuture cf = b.connect("127.0.0.1", 8005).syncUninterruptibly();
 
         byte[] msg = "发送第1条消息".getBytes();

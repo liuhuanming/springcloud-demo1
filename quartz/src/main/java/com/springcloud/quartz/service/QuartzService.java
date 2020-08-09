@@ -12,16 +12,19 @@ import java.util.Map;
  */
 public interface QuartzService {
     void addJob(Class<? extends QuartzJobBean> job, String jobName, String jobGroupName, int jobTime,
-           int jobTimes, Map<String, Object> jobParam);
+                int jobTimes, Map<String, Object> jobParam);
 
     void addJob(Class<? extends QuartzJobBean> job, String jobName, String jobGroupName, String jobTime,
                 Map<String, Object> jobParam);
+
     // 修改一个job的时间表达式
     void updateJob(String jobName, String jobGroupName, String jobTime);
 
     void deleteJob(String jobName, String jobGroupName);
+
     // 暂停
     void pauseJob(String jobName, String jobGroupName);
+
     //恢复job
     void resumeJob(String jobName, String jobGroupName);
 

@@ -10,12 +10,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class RedisApplicationTests {
-	@Autowired
-	private RushBuyService rushBuyService;
+    @Autowired
+    private RushBuyService rushBuyService;
 
-	@Test
-	public void contextLoads() throws InterruptedException {
-		rushBuyService.rushBuy1();
-	}
+    @Test
+    public void contextLoads() throws InterruptedException {
+        rushBuyService.rushBuy1();
+    }
 
 }

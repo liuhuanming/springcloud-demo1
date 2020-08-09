@@ -21,11 +21,12 @@ public class RedissonManager {
 
     /**
      * 单机配置模式
+     *
      * @return
      * @throws Exception
      */
     @Bean
-    public RedissonClient getRedisson() throws Exception{
+    public RedissonClient getRedisson() throws Exception {
         RedissonClient redisson = null;
         Config config = new Config();
         config.useSingleServer().setAddress(addressUrl)

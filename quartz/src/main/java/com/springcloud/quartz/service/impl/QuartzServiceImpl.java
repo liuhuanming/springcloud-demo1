@@ -31,12 +31,11 @@ public class QuartzServiceImpl implements QuartzService {
     }
 
     /**
-     *
      * @param job
      * @param jobName
      * @param jobGroupName
-     * @param jobTime 每隔多少秒
-     * @param jobTimes 执行次数 0:不限制
+     * @param jobTime      每隔多少秒
+     * @param jobTimes     执行次数 0:不限制
      * @param jobParam
      */
     @Override
@@ -44,7 +43,7 @@ public class QuartzServiceImpl implements QuartzService {
         // 任务名称和组构成任务key
         JobDetail jobDetail = JobBuilder.newJob(jobClass).withIdentity(jobName, jobGroupName).build();
         // job参数
-        if (jobParam!=null&&!jobParam.isEmpty()) {
+        if (jobParam != null && !jobParam.isEmpty()) {
             jobDetail.getJobDataMap().putAll(jobParam);
         }
         // 定义simpleTrigger规则
@@ -65,10 +64,11 @@ public class QuartzServiceImpl implements QuartzService {
 
     /**
      * 增加Job
+     *
      * @param job
      * @param jobName
      * @param jobGroupName
-     * @param jobTime 时间表达式 （如：0/5 * * * * ? ）
+     * @param jobTime      时间表达式 （如：0/5 * * * * ? ）
      * @param jobParam
      */
     @Override
@@ -78,7 +78,7 @@ public class QuartzServiceImpl implements QuartzService {
         // 任务名称和组构成任务key
         JobDetail jobDetail = JobBuilder.newJob(jobClass).withIdentity(jobName, jobGroupName).build();
         // job参数
-        if (jobParam!=null&&!jobParam.isEmpty()) {
+        if (jobParam != null && !jobParam.isEmpty()) {
             jobDetail.getJobDataMap().putAll(jobParam);
         }
         // 定义simpleTrigger规则
@@ -98,6 +98,7 @@ public class QuartzServiceImpl implements QuartzService {
 
     /**
      * 修改 一个job的 时间表达式
+     *
      * @param jobName
      * @param jobGroupName
      * @param jobTime
@@ -127,6 +128,7 @@ public class QuartzServiceImpl implements QuartzService {
 
     /**
      * 暂停job
+     *
      * @param jobName
      * @param jobGroupName
      */
@@ -141,6 +143,7 @@ public class QuartzServiceImpl implements QuartzService {
 
     /**
      * 恢复job
+     *
      * @param jobName
      * @param jobGroupName
      */

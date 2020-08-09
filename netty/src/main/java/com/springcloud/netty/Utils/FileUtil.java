@@ -36,11 +36,12 @@ public class FileUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return  realPath;
+        return realPath;
     }
 
     /**
      * 如果路径不存在就新建
+     *
      * @param path
      */
     public static void touch(String path) {

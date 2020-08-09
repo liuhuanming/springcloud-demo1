@@ -38,7 +38,7 @@ public class SortListUtil {
      * @param sort  排序方式: SortListUtil.DESC(降序) SortListUtil.ASC(升序).
      * @return
      */
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public static List<?> sort(List<?> list, final String field,
                                final String sort) {
         Collections.sort(list, (Comparator) (a, b) -> {

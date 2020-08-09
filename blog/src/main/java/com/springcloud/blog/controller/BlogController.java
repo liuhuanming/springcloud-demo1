@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author: lmn
  * @date: 2019-10-26 21:45
  */
-@Api(value = "文章",tags = "文章博客模块")
+@Api(value = "文章", tags = "文章博客模块")
 @RequestMapping("/blog")
 @RestController
 public class BlogController {
@@ -32,8 +32,8 @@ public class BlogController {
 
     @ApiOperation(value = "根据userId获取博客")
     @GetMapping("/{userId}")
-    public Result<String> getBlogByUserId(@PathVariable("userId") Integer userId){
+    public Result<String> getBlogByUserId(@PathVariable("userId") Integer userId) {
         String info = blogService.getBlogByUserId(userId);
-        return Response.ok("消费者收到信息："+ info);
+        return Response.ok("消费者收到信息：" + info);
     }
 }

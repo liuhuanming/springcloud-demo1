@@ -19,7 +19,7 @@ import java.util.List;
  * @author: lmn
  * @date: 2019-10-26 21:45
  */
-@Api(value = "测试",tags = "测试用户模块")
+@Api(value = "测试", tags = "测试用户模块")
 @RequestMapping("/uTest")
 @RestController
 public class UserController {
@@ -28,18 +28,19 @@ public class UserController {
 
     @ApiOperation(value = "添加用户")
     @PutMapping("/user")
-    public Result<String> add(User user){
+    public Result<String> add(User user) {
         int i = userService.save(user);
         if (i > 0) {
             return Response.ok();
         }
         return Response.error(ResultEnum.ERROR);
     }
+
     @ApiOperation(value = "查询用户list")
     @GetMapping("/user")
-    public Result<List<User>> list(){
+    public Result<List<User>> list() {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        List<User> userList =  userService.selectList(queryWrapper);
+        List<User> userList = userService.selectList(queryWrapper);
         if (!userList.isEmpty()) {
 
             return Response.ok(userList);

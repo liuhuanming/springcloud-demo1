@@ -28,9 +28,9 @@ public class Server {
         bootstrap.group(pGroup, cGroup)
                 .channel(NioServerSocketChannel.class) // 指定NIO的模式
                 .option(ChannelOption.SO_BACKLOG, 1024) //指定TCP的缓冲区
-                .option(ChannelOption.SO_SNDBUF, 32*1024) //指定发送区缓冲区
-                .option(ChannelOption.SO_RCVBUF, 32*1024) //指定接收区缓冲区
-                .option(ChannelOption.SO_KEEPALIVE,true) //保持连接
+                .option(ChannelOption.SO_SNDBUF, 32 * 1024) //指定发送区缓冲区
+                .option(ChannelOption.SO_RCVBUF, 32 * 1024) //指定接收区缓冲区
+                .option(ChannelOption.SO_KEEPALIVE, true) //保持连接
                 .childHandler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel sc) throws Exception {

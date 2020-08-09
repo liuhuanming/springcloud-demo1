@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CalendarUtils {
-	private static String format = "";
+    private static String format = "";
 
     private static Date date = new Date();
     private static SimpleDateFormat formatter = null;

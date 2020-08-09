@@ -41,6 +41,6 @@ public class DistributedLockHandler {
                 redisLockUtil.unlock(lockKey);
             }
         }
-        log.info("关于{}的分布式锁,执行业务结束",lockKey);
+        log.info("关于{}的分布式锁,执行业务结束", lockKey);
     }
 }

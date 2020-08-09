@@ -57,8 +57,8 @@ public class NetUtil {
     }
 
     public static void main(String[] args) throws SigarException {
-        getNetInfos().forEach(n->{
-            System.out.println(n.getName()+">>"+n.getValue());
+        getNetInfos().forEach(n -> {
+            System.out.println(n.getName() + ">>" + n.getValue());
         });
     }
 }

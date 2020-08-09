@@ -30,7 +30,7 @@ public class SSHUtil {
 
     }
 
-    public static List<String> exeCommand(String host, int port, String user, String password, String command) throws JSchException, IOException  {
+    public static List<String> exeCommand(String host, int port, String user, String password, String command) throws JSchException, IOException {
 
         JSch jsch = new JSch();
         Session session = jsch.getSession(user, host, port);

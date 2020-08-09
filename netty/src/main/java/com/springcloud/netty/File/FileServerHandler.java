@@ -57,6 +57,7 @@ public class FileServerHandler extends ChannelInboundHandlerAdapter {
         } catch (Exception e) {
         }
     }
+
     // 传输文件
     private void transferFile(File file, ChannelHandlerContext ctx) {
 
@@ -69,7 +70,7 @@ public class FileServerHandler extends ChannelInboundHandlerAdapter {
             ctx.write(defaultHttpResponse);
 
             ChannelFuture channelFuture = ctx.write(new ChunkedFile(
-                    randomAccessFile, 0, length ,8192),ctx.newProgressivePromise());
+                    randomAccessFile, 0, length, 8192), ctx.newProgressivePromise());
             addListener(channelFuture);
             ChannelFuture lastChanelFuture = ctx.writeAndFlush(LastHttpContent.EMPTY_LAST_CONTENT);
             lastChanelFuture.addListener(ChannelFutureListener.CLOSE);
@@ -82,6 +83,7 @@ public class FileServerHandler extends ChannelInboundHandlerAdapter {
 
     /**
      * 监听传输状态
+     *
      * @param channelFuture
      */
     private void addListener(ChannelFuture channelFuture) {
@@ -105,6 +107,7 @@ public class FileServerHandler extends ChannelInboundHandlerAdapter {
 
     /**
      * 跳转链接
+     *
      * @param ctx
      * @param newUrl
      */
@@ -117,6 +120,7 @@ public class FileServerHandler extends ChannelInboundHandlerAdapter {
 
     /**
      * 请求为目录时，显示文件列表
+     *
      * @param ctx
      * @param dir
      */

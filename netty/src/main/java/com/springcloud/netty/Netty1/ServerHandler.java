@@ -14,7 +14,7 @@ import java.io.UnsupportedEncodingException;
  */
 public class ServerHandler extends ChannelInboundHandlerAdapter {
     @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception{
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("server channel active ....");
     }
 
@@ -37,6 +37,6 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable t) throws Exception {
-         ctx.close();
-     }
+        ctx.close();
+    }
 }

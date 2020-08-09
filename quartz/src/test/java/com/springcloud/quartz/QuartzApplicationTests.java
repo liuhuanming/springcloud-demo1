@@ -14,15 +14,15 @@ import java.util.Map;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class QuartzApplicationTests {
-	@Autowired
-	private QuartzService quartzService;
+    @Autowired
+    private QuartzService quartzService;
 
-	@Test
-	public void contextLoads() {
-		Map map = new HashMap<>(2);
-		map.put("id", 1L);
-		quartzService.addJob(TestJob1.class, "job", "test", "0/30 * * * * ?",map);
+    @Test
+    public void contextLoads() {
+        Map map = new HashMap<>(2);
+        map.put("id", 1L);
+        quartzService.addJob(TestJob1.class, "job", "test", "0/30 * * * * ?", map);
 
-	}
+    }
 
 }

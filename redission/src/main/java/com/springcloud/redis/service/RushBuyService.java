@@ -79,11 +79,11 @@ public class RushBuyService {
                 System.err.println(">>货物" + product.getProductName() + "已经卖完了！！！");
             } else {
                 product.setStock(product.getStock() - 1);
-                System.err.println(">>货物数量"+product.getStock());
+                System.err.println(">>货物数量" + product.getStock());
                 ProductEntity productEntity = productService.updateOne(product);
                 //如果该线程还持有该锁，那么释放该锁。如果该线程不持有该锁，说明该线程的锁已到过期时间，自动释放锁
                 redisLockUtil.isHeldByCurrentThread(key);
-                return  productEntity;
+                return productEntity;
             }
         } catch (Exception e) {
             e.printStackTrace();

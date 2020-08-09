@@ -17,7 +17,7 @@ import java.util.Date;
 @Entity(name = "ScheduleJobEntity")
 @Table(name = "t_schedule_job")
 @Data
-public class ScheduleJobEntity{
+public class ScheduleJobEntity {
     public static final String JOB_PARAM_KEY = "JOB_PARAM_KEY";
     @Id
     @GeneratedValue

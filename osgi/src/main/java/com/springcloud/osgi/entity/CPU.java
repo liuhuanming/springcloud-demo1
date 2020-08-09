@@ -57,14 +57,14 @@ public class CPU {
     }
 
     public double getUsed() {
-        return CalcUtil.getDoubleRate(used,total);
+        return CalcUtil.getDoubleRate(used, total);
     }
 
     public double getWait() {
-        return CalcUtil.getDoubleRate(wait,total);
+        return CalcUtil.getDoubleRate(wait, total);
     }
 
     public double getFree() {
-        return CalcUtil.getDoubleRate(free,total);
+        return CalcUtil.getDoubleRate(free, total);
     }
 }

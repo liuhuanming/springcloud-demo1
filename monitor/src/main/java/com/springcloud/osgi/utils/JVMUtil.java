@@ -48,8 +48,8 @@ public class JVMUtil {
     }
 
     public static void main(String[] args) {
-        getJvmInfos().forEach(p->{
-            System.out.println(p.getName()+">>"+p.getValue());
+        getJvmInfos().forEach(p -> {
+            System.out.println(p.getName() + ">>" + p.getValue());
         });
     }
 }
