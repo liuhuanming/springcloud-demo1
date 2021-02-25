@@ -1,4 +1,8 @@
-import com.springcloud.common.enums;
+package com.springcloud.common.enums;
+
+/**
+ *  结果集Enum
+ */
 public enum ResultEnum {
 	//这里是可以自己定义的，方便与前端交互即可
     ERROR("-1","操作失败"),
@@ -45,7 +49,7 @@ public enum ResultEnum {
 
     private String code;
     private String msg;
- 
+
     ResultEnum(String code, String msg) {
         this.code = code;
         this.msg = msg;
