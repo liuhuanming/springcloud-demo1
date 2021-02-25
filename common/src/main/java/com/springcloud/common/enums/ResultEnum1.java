@@ -3,7 +3,7 @@ package com.springcloud.common.enums;
 /**
  *  结果集Enum
  */
-public enum ResultEnum {
+public enum ResultEnum1 {
 	//这里是可以自己定义的，方便与前端交互即可
     ERROR("-1","操作失败"),
     NOT_TIME("-3","不在时间内"),
@@ -50,7 +50,7 @@ public enum ResultEnum {
     private String code;
     private String msg;
 
-    ResultEnum(String code, String msg) {
+    ResultEnum1(String code, String msg) {
         this.code = code;
         this.msg = msg;
     }

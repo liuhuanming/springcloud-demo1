@@ -1,4 +1,4 @@
-package com.springcloud.common.handler;
+package com.springboot.common.exception;
 
 /**
  * @description:
@@ -6,11 +6,10 @@ package com.springcloud.common.handler;
  * @date: 2020-06-27 19:19
  */
 
+import com.springboot.common.result.Response;
+import com.springboot.common.result.Result;
+import com.springboot.common.result.ResultEnum;
 import com.springcloud.common.exception.MyException;
-import com.springcloud.common.result.RM2;
-import com.springcloud.common.result.Response;
-import com.springcloud.common.result.Result;
-import com.springcloud.common.result.ResultEnum;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -72,14 +71,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatus status, WebRequest request) {
         if (ex instanceof MethodArgumentNotValidException) {
             MethodArgumentNotValidException exception = (MethodArgumentNotValidException) ex;
-            return new ResponseEntity<>(new RM2(false, exception.getBindingResult().getAllErrors().get(0).getDefaultMessage()), status);
+            return new ResponseEntity<>(Response.error(ResultEnum.PARAM_NOT_VALID), status);
         }
         if (ex instanceof MethodArgumentTypeMismatchException) {
             MethodArgumentTypeMismatchException exception = (MethodArgumentTypeMismatchException) ex;
             logger.error("参数转换失败，方法：" + exception.getParameter().getMethod().getName() + "，参数：" + exception.getName()
                     + ",信息：" + exception.getLocalizedMessage());
-            return new ResponseEntity<>(new Result(false, "参数转换失败"), status);
+            return new ResponseEntity<>(Response.error(ResultEnum.PARAM_TYPE_ERROR), status);
         }
-        return new ResponseEntity<>(new Result<>(false, "参数转换失败"), status);
+        return new ResponseEntity<>(Response.error(ResultEnum.PARAM_TYPE_ERROR), status);
     }
 }
