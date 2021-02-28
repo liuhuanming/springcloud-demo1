@@ -19,6 +19,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <common-beanutils.version>1.8.0</common-beanutils.version>
+        <oshi-core.version>3.9.1</oshi-core.version>
+        <websocket.version>5.1.10.RELEASE</websocket.version>
     </properties>
 
     <dependencies>
@@ -30,6 +33,17 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-commons</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.oshi</groupId>
+            <artifactId>oshi-core</artifactId>
+            <version>${oshi-core.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-websocket</artifactId>
+            <version>${websocket.version}</version>
         </dependency>
     </dependencies>
 

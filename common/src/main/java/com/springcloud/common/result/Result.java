@@ -1,4 +1,4 @@
-package com.springboot.common.result;
+package com.springcloud.common.result;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
@@ -21,7 +21,7 @@ public class Result<T> {
     // 返回描述
     private String msg;
 
-    public Result<T> setCode(com.springboot.common.result.ResultEnum ResultEnum) {
+    public Result<T> setCode(ResultEnum ResultEnum) {
         this.code = ResultEnum.getCode();
         return this;
     }

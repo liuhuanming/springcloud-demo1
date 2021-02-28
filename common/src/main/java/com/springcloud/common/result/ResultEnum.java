@@ -1,5 +1,4 @@
-package com.springboot.common.result;
-
+package com.springcloud.common.result;
 /**
  * 规定: 这里是可以自己定义的，方便与前端交互即可
  */
